@@ -1,5 +1,5 @@
 function HomePage({ t, onTeacherStart, onStudentStart }) {
-  const formulas = ["7x(3^2)+2?", "a^2 + b^2 = c^2", "sqrt(64)", "12 / 3"];
+  const formulas = ["7x(3^2)+2?", "a^2 + b^2 = c^2", "sqrt(64)", "3/12"];
   const features = [
     t.home.features.win,
     t.home.features.multiplayer,
@@ -11,6 +11,8 @@ function HomePage({ t, onTeacherStart, onStudentStart }) {
       <div className="home-orbit home-orbit--cyan" />
       <div className="home-orbit home-orbit--purple" />
       <div className="home-station-frame" aria-hidden="true" />
+      <div className="home-light-trail home-light-trail--cyan" aria-hidden="true" />
+      <div className="home-light-trail home-light-trail--purple" aria-hidden="true" />
 
       <div className="home-hero-shell">
         <header className="home-hero-top">
@@ -26,6 +28,8 @@ function HomePage({ t, onTeacherStart, onStudentStart }) {
         </header>
 
         <div className="home-dashboard-panel">
+          <div className="home-dashboard-ridge" aria-hidden="true" />
+
           <div className="home-panel-title">
             <span>{t.home.panelTitle}</span>
           </div>
@@ -90,6 +94,7 @@ function HomePage({ t, onTeacherStart, onStudentStart }) {
               <span aria-hidden="true">++</span>
               {t.home.teacherButton}
             </button>
+            <span className="home-action-divider">{t.home.orLabel}</span>
             <button
               className="neon-button neon-button--student"
               type="button"

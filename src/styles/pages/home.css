@@ -18,11 +18,12 @@
 
 .home-page::before {
   background:
-    radial-gradient(circle at 9% 34%, rgba(26, 146, 255, 0.62), transparent 17%),
-    radial-gradient(circle at 88% 34%, rgba(168, 85, 247, 0.54), transparent 18%),
-    radial-gradient(circle at 76% 10%, rgba(245, 158, 11, 0.32), transparent 18%),
-    radial-gradient(circle at 50% 97%, rgba(0, 217, 255, 0.32), transparent 34%),
-    linear-gradient(145deg, #020511 0%, #071126 43%, #170725 100%);
+    radial-gradient(circle at 8% 39%, rgba(46, 129, 255, 0.58), transparent 16%),
+    radial-gradient(circle at 89% 39%, rgba(255, 177, 57, 0.28), transparent 13%),
+    radial-gradient(circle at 78% 18%, rgba(177, 76, 255, 0.55), transparent 21%),
+    radial-gradient(circle at 22% 12%, rgba(0, 200, 255, 0.36), transparent 19%),
+    radial-gradient(circle at 50% 92%, rgba(0, 217, 255, 0.35), transparent 33%),
+    linear-gradient(145deg, #02040d 0%, #061026 38%, #170725 100%);
   box-shadow:
     inset 0 0 130px rgba(0, 217, 255, 0.1),
     inset 0 0 220px rgba(0, 0, 0, 0.42);
@@ -32,7 +33,9 @@
 .home-page::after {
   background-image:
     radial-gradient(circle, rgba(255, 255, 255, 0.8) 0 1px, transparent 1.5px),
-    radial-gradient(circle, rgba(0, 217, 255, 0.55) 0 1px, transparent 1.6px);
+    radial-gradient(circle, rgba(0, 217, 255, 0.55) 0 1px, transparent 1.6px),
+    linear-gradient(115deg, transparent 0 67%, rgba(0, 217, 255, 0.12) 68%, transparent 70%),
+    linear-gradient(64deg, transparent 0 55%, rgba(176, 91, 255, 0.14) 56%, transparent 58%);
   background-position:
     0 0,
     34px 54px;
@@ -41,6 +44,35 @@
     128px 128px;
   inset: 0;
   opacity: 0.34;
+}
+
+.home-light-trail {
+  border-radius: 999px;
+  filter: blur(0.2px);
+  height: 3px;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+.home-light-trail--cyan {
+  background: linear-gradient(90deg, transparent, rgba(57, 216, 255, 0.95), transparent);
+  box-shadow: 0 0 18px rgba(0, 200, 255, 0.72);
+  left: 8vw;
+  top: 74vh;
+  transform: rotate(-15deg);
+  width: 34vw;
+}
+
+.home-light-trail--purple {
+  background: linear-gradient(90deg, transparent, rgba(176, 91, 255, 0.95), rgba(255, 182, 64, 0.65), transparent);
+  box-shadow:
+    0 0 18px rgba(176, 91, 255, 0.72),
+    0 0 26px rgba(255, 182, 64, 0.38);
+  right: 7vw;
+  top: 33vh;
+  transform: rotate(16deg);
+  width: 35vw;
 }
 
 .home-station-frame {
@@ -104,13 +136,13 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: clamp(8px, 1.3vh, 16px);
+  gap: clamp(7px, 1.2vh, 14px);
   height: 100%;
   justify-content: center;
   margin: 0 auto;
   max-height: 100svh;
   max-width: min(1180px, 100vw);
-  padding: clamp(8px, 1.4vh, 14px) clamp(12px, 2vw, 24px);
+  padding: clamp(7px, 1.3vh, 12px) clamp(12px, 2vw, 24px);
   position: relative;
   width: 100%;
 }
@@ -151,7 +183,7 @@
 
 .home-hero-top {
   flex: 0 0 auto;
-  height: clamp(132px, 23vh, 220px);
+  height: clamp(126px, 22vh, 208px);
   overflow: hidden;
   padding: clamp(16px, 3vh, 34px) 28px 0;
   position: relative;
@@ -171,7 +203,7 @@
 
 .home-hero-top h1 {
   color: #effbff;
-  font-size: clamp(3rem, 8.5vw, 7.2rem);
+  font-size: clamp(3rem, 8.15vw, 7rem);
   font-weight: 950;
   letter-spacing: 0;
   line-height: 0.82;
@@ -181,6 +213,7 @@
     0 0 24px rgba(0, 217, 255, 0.9),
     0 0 56px rgba(37, 99, 235, 0.72),
     0 18px 40px rgba(0, 0, 0, 0.62);
+  text-transform: uppercase;
 }
 
 .home-hero-subtitle {
@@ -238,7 +271,7 @@
     radial-gradient(circle at 16% 18%, rgba(0, 217, 255, 0.18), transparent 36%),
     radial-gradient(circle at 84% 18%, rgba(168, 85, 247, 0.18), transparent 36%);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(125, 211, 252, 0.46);
+  border: 1px solid rgba(125, 231, 255, 0.58);
   border-radius: var(--radius-panel);
   box-shadow:
     inset 0 0 42px rgba(0, 217, 255, 0.12),
@@ -246,27 +279,30 @@
     0 0 0 1px rgba(168, 85, 247, 0.2),
     0 0 46px rgba(0, 217, 255, 0.22),
     0 34px 88px rgba(0, 0, 0, 0.54);
-  clip-path: polygon(
-    0 32px,
-    32px 0,
-    calc(50% - 88px) 0,
-    calc(50% - 66px) 18px,
-    calc(50% + 66px) 18px,
-    calc(50% + 88px) 0,
-    calc(100% - 32px) 0,
-    100% 32px,
-    100% calc(100% - 26px),
-    calc(100% - 26px) 100%,
-    26px 100%,
-    0 calc(100% - 26px)
-  );
+  clip-path: polygon(0 34px, 34px 0, 36% 0, 39% 17px, 61% 17px, 64% 0, calc(100% - 34px) 0, 100% 34px, 100% calc(100% - 28px), calc(100% - 28px) 100%, 28px 100%, 0 calc(100% - 28px));
   display: grid;
   flex: 0 1 auto;
-  gap: clamp(10px, 1.5vh, 16px);
+  gap: clamp(9px, 1.25vh, 15px);
   margin: 0 auto;
-  padding: clamp(16px, 2.4vh, 24px);
+  padding: clamp(15px, 2vh, 22px) clamp(18px, 2.2vw, 26px);
   position: relative;
-  width: min(950px, calc(100% - 28px));
+  width: min(970px, calc(100% - 26px));
+}
+
+.home-dashboard-ridge {
+  background:
+    linear-gradient(90deg, transparent, rgba(57, 216, 255, 0.95), transparent),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent);
+  border: 1px solid rgba(125, 231, 255, 0.42);
+  border-bottom: 0;
+  border-radius: 14px 14px 0 0;
+  box-shadow: 0 0 22px rgba(0, 200, 255, 0.32);
+  height: 16px;
+  left: 50%;
+  position: absolute;
+  top: -11px;
+  transform: translateX(-50%);
+  width: min(300px, 34%);
 }
 
 .home-dashboard-panel::before,
@@ -308,11 +344,22 @@
     linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.12), transparent),
     rgba(2, 12, 30, 0.8);
   border: 1px solid rgba(125, 211, 252, 0.38);
-  border-radius: 999px;
+  border-radius: 8px;
   box-shadow:
     inset 0 0 18px rgba(0, 217, 255, 0.12),
     0 0 18px rgba(0, 217, 255, 0.16);
-  padding: 6px 22px;
+  padding: 6px 26px;
+}
+
+.home-panel-title span::before,
+.home-panel-title span::after {
+  content: "»";
+  opacity: 0.85;
+  padding-inline: 10px;
+}
+
+.home-panel-title span::before {
+  content: "«";
 }
 
 .home-role-cards,
@@ -326,7 +373,8 @@
 .home-role-cards,
 .home-form-grid,
 .home-actions {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
 }
 
 .role-card {
@@ -338,7 +386,7 @@
   box-shadow:
     inset 0 0 32px var(--role-glow-soft),
     0 0 26px var(--role-glow-soft);
-  min-height: clamp(172px, 25vh, 232px);
+  min-height: clamp(170px, 24vh, 226px);
   overflow: hidden;
   position: relative;
   transition:
@@ -389,7 +437,7 @@
 }
 
 .role-card__scene {
-  height: clamp(88px, 14vh, 128px);
+  height: clamp(86px, 13.5vh, 122px);
   inset: 0 0 auto;
   overflow: hidden;
   position: absolute;
@@ -490,7 +538,7 @@
   gap: 16px;
   grid-template-columns: auto 1fr;
   inset-inline: 0;
-  padding: clamp(92px, 14.6vh, 126px) clamp(16px, 2vw, 22px) clamp(14px, 2vh, 20px);
+  padding: clamp(88px, 13.8vh, 120px) clamp(16px, 2vw, 22px) clamp(14px, 2vh, 20px);
   position: relative;
   z-index: 2;
 }
@@ -499,7 +547,7 @@
   align-items: center;
   background: rgba(2, 12, 30, 0.78);
   border: 1px solid var(--role-border);
-  border-radius: 18px;
+  border-radius: 16px;
   box-shadow:
     inset 0 0 18px var(--role-glow-soft),
     0 0 24px var(--role-glow-soft);
@@ -613,14 +661,44 @@
 .neon-button:hover {
   border-color: rgba(255, 255, 255, 0.92);
   box-shadow: 0 0 42px var(--button-glow);
-  transform: translateY(-3px) scale(1.015);
+  transform: translateY(-2px) scale(1.012);
+}
+
+.home-action-divider {
+  color: #7ee8ff;
+  display: inline-grid;
+  font-size: clamp(0.75rem, 1.2vw, 0.92rem);
+  font-weight: 950;
+  justify-items: center;
+  letter-spacing: 0.08em;
+  min-width: 48px;
+  position: relative;
+  text-shadow: 0 0 14px rgba(0, 200, 255, 0.8);
+}
+
+.home-action-divider::before,
+.home-action-divider::after {
+  background: linear-gradient(90deg, transparent, rgba(57, 216, 255, 0.8), transparent);
+  content: "";
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  width: 28px;
+}
+
+.home-action-divider::before {
+  right: calc(100% + 6px);
+}
+
+.home-action-divider::after {
+  left: calc(100% + 6px);
 }
 
 .home-feature-strip {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 0 auto;
   padding: 0 clamp(14px, 2vw, 22px);
-  width: min(910px, 100%);
+  width: min(880px, 100%);
 }
 
 .feature-badge {
@@ -677,6 +755,10 @@
   .home-actions,
   .home-feature-strip {
     grid-template-columns: 1fr;
+  }
+
+  .home-action-divider {
+    display: none;
   }
 
   .role-card {
