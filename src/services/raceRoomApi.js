@@ -16,6 +16,13 @@ export function startRace(roomCode) {
   });
 }
 
+export function updateQuestionSettings(roomCode, settings) {
+  return apiRequest(`/api/race-rooms/${roomCode}/question-settings`, {
+    method: "PUT",
+    body: JSON.stringify(settings),
+  });
+}
+
 export function joinRaceRoom(roomCode, displayName) {
   return apiRequest(`/api/race-rooms/${roomCode}/players`, {
     method: "POST",

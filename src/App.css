@@ -150,3 +150,26 @@ button:disabled {
   color: #9d1c1c;
   padding: 12px;
 }
+
+.checkbox-list {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.checkbox-row {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+
+.checkbox-row input {
+  width: 18px;
+  height: 18px;
+}
+
+.success-message {
+  color: #176b3a;
+  font-weight: 800;
+  margin: 12px 0 0;
+}

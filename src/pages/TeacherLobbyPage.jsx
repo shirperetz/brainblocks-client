@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ErrorMessage from "../components/ErrorMessage";
 import LobbyPanel from "../components/LobbyPanel";
+import QuestionSettingsPanel from "../components/QuestionSettingsPanel";
 import useLobby from "../hooks/useLobby";
 import { startRace } from "../services/raceRoomApi";
 
@@ -57,6 +58,7 @@ function TeacherLobbyPage({ roomCode }) {
 
       <ErrorMessage message={error} />
       <ErrorMessage message={startRaceError} />
+      <QuestionSettingsPanel roomCode={roomCode} />
       <LobbyPanel lobby={lobby} />
     </section>
   );
