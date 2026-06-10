@@ -10,10 +10,41 @@ export const translations = {
     toggleLabel: "English",
     backHome: "חזרה למסך הבית",
     home: {
-      title: "BrainBlocks",
-      subtitle: "מרוץ מתמטי לכיתה - יוצרים חדר, מצטרפים ומשחקים יחד.",
-      teacherButton: "אני מורה",
-      studentButton: "אני תלמיד/ה",
+      kicker: "לובי מרוצים עתידני",
+      title: "מרוץ חשבון",
+      subtitle: "פותרים. מאיצים. מנצחים.",
+      panelTitle: "בחרו תפקיד",
+      teacherButton: "פתחי חדר",
+      studentButton: "הצטרף לחדר",
+      playerNameLabel: "שם",
+      roomCodeLabel: "קוד חדר",
+      playerNamePlaceholder: "הכניסו שם...",
+      roomCodePlaceholder: "הכניסו קוד חדר...",
+      teacher: {
+        title: "מורה",
+        description: "פתיחת חדר מרוץ עד 8 תלמידים",
+      },
+      student: {
+        title: "תלמיד",
+        description: "הצטרפות למרוץ ופתירת תרגילים",
+      },
+      features: {
+        math: {
+          icon: "∑",
+          title: "אתגרי חשבון",
+          description: "פותרים כדי להאיץ",
+        },
+        multiplayer: {
+          icon: "8",
+          title: "מרוץ מרובה משתתפים",
+          description: "מתחרים עם חברים",
+        },
+        win: {
+          icon: "★",
+          title: "לומדים ומנצחים",
+          description: "מתרגלים. משתפרים. מנצחים.",
+        },
+      },
     },
     teacherCreate: {
       title: "יצירת חדר מרוץ",
@@ -81,8 +112,7 @@ export const translations = {
       "Room not found. Check the room code and try again.":
         "החדר לא נמצא. בדקו את קוד החדר ונסו שוב.",
       "This room is already full.": "החדר כבר מלא.",
-      "That display name is already taken in this room.":
-        "השם הזה כבר תפוס בחדר הזה.",
+      "That display name is already taken in this room.": "השם הזה כבר תפוס בחדר הזה.",
       "This room is not waiting for players right now.":
         "החדר לא פתוח כרגע להצטרפות תלמידים.",
       "This action is not available right now.": "הפעולה הזו לא זמינה כרגע.",
@@ -98,10 +128,41 @@ export const translations = {
     toggleLabel: "עברית",
     backHome: "Back home",
     home: {
-      title: "BrainBlocks",
-      subtitle: "A classroom math race lobby for teachers and students.",
-      teacherButton: "Teacher",
-      studentButton: "Student",
+      kicker: "Future racing lobby",
+      title: "MATH RACERS",
+      subtitle: "Solve. Boost. Win.",
+      panelTitle: "Choose your role",
+      teacherButton: "Create Room",
+      studentButton: "Join Room",
+      playerNameLabel: "Player Name",
+      roomCodeLabel: "Room Code",
+      playerNamePlaceholder: "Enter your name...",
+      roomCodePlaceholder: "Enter room code...",
+      teacher: {
+        title: "TEACHER",
+        description: "Open a race room for up to 8 students",
+      },
+      student: {
+        title: "STUDENT",
+        description: "Join a race and solve math to boost",
+      },
+      features: {
+        math: {
+          icon: "∑",
+          title: "Math Challenges",
+          description: "Solve to boost",
+        },
+        multiplayer: {
+          icon: "8",
+          title: "Multiplayer Racing",
+          description: "Compete with friends",
+        },
+        win: {
+          icon: "★",
+          title: "Learn & Win",
+          description: "Practice. Improve. Win.",
+        },
+      },
     },
     teacherCreate: {
       title: "Create race room",
