@@ -10,7 +10,7 @@ export const translations = {
     toggleLabel: "English",
     backHome: "חזרה למסך הבית",
     home: {
-      kicker: "לובי מרוצים עתידני",
+      kicker: "לובי מרוצים מתמטי",
       title: "מרוץ חשבון",
       subtitle: "פותרים. מאיצים. מנצחים.",
       panelTitle: "בחרו תפקיד",
@@ -30,7 +30,7 @@ export const translations = {
       },
       features: {
         math: {
-          icon: "∑",
+          icon: "+-",
           title: "אתגרי חשבון",
           description: "פותרים כדי להאיץ",
         },
@@ -40,7 +40,7 @@ export const translations = {
           description: "מתחרים עם חברים",
         },
         win: {
-          icon: "★",
+          icon: "1st",
           title: "לומדים ומנצחים",
           description: "מתרגלים. משתפרים. מנצחים.",
         },
@@ -128,7 +128,7 @@ export const translations = {
     toggleLabel: "עברית",
     backHome: "Back home",
     home: {
-      kicker: "Future racing lobby",
+      kicker: "Math Racing Lobby",
       title: "MATH RACERS",
       subtitle: "Solve. Boost. Win.",
       panelTitle: "Choose your role",
@@ -148,7 +148,7 @@ export const translations = {
       },
       features: {
         math: {
-          icon: "∑",
+          icon: "+-",
           title: "Math Challenges",
           description: "Solve to boost",
         },
@@ -158,7 +158,7 @@ export const translations = {
           description: "Compete with friends",
         },
         win: {
-          icon: "★",
+          icon: "1st",
           title: "Learn & Win",
           description: "Practice. Improve. Win.",
         },

@@ -1,9 +1,9 @@
 function HomePage({ t, onTeacherStart, onStudentStart }) {
   const formulas = ["7x(3^2)+2?", "a^2 + b^2 = c^2", "sqrt(64)", "12 / 3"];
   const features = [
-    t.home.features.math,
-    t.home.features.multiplayer,
     t.home.features.win,
+    t.home.features.multiplayer,
+    t.home.features.math,
   ];
 
   return (
