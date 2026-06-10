@@ -10,6 +10,12 @@ export function getLobby(roomCode) {
   return apiRequest(`/api/race-rooms/${roomCode}/lobby`);
 }
 
+export function startRace(roomCode) {
+  return apiRequest(`/api/race-rooms/${roomCode}/start`, {
+    method: "POST",
+  });
+}
+
 export function joinRaceRoom(roomCode, displayName) {
   return apiRequest(`/api/race-rooms/${roomCode}/players`, {
     method: "POST",
