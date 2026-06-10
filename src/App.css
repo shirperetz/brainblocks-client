@@ -2,6 +2,7 @@
   width: min(960px, calc(100% - 32px));
   margin: 0 auto;
   padding: 40px 0;
+  text-align: start;
 }
 
 .page {
@@ -27,6 +28,17 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+.language-toggle {
+  background: #f7faff;
+  border: 1px solid #d8deea;
+  color: #173a97;
+  display: block;
+  margin-left: 0;
+  margin-bottom: 18px;
+  margin-right: auto;
+  width: fit-content;
 }
 
 .form {
@@ -81,7 +93,7 @@ button:disabled {
   background: transparent;
   color: #2454d6;
   margin-bottom: 18px;
-  padding-left: 0;
+  padding-inline-start: 0;
 }
 
 .room-code {
@@ -90,6 +102,7 @@ button:disabled {
   font-weight: 900;
   letter-spacing: 0.08em;
   margin: 0;
+  text-align: center;
 }
 
 .status-grid {

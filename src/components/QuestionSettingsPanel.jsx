@@ -3,20 +3,20 @@ import ErrorMessage from "./ErrorMessage";
 import { updateQuestionSettings } from "../services/raceRoomApi";
 
 const OPERATIONS = [
-  { value: "ADDITION", label: "Addition" },
-  { value: "SUBTRACTION", label: "Subtraction" },
-  { value: "MULTIPLICATION", label: "Multiplication" },
-  { value: "DIVISION", label: "Division" },
+  "ADDITION",
+  "SUBTRACTION",
+  "MULTIPLICATION",
+  "DIVISION",
 ];
 
-function QuestionSettingsPanel({ roomCode }) {
+function QuestionSettingsPanel({ t, roomCode }) {
   const [selectedOperations, setSelectedOperations] = useState([
     "ADDITION",
     "SUBTRACTION",
   ]);
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
+  const [isSaved, setIsSaved] = useState(false);
 
   function toggleOperation(operation) {
     setSelectedOperations((currentOperations) => {
@@ -26,13 +26,13 @@ function QuestionSettingsPanel({ roomCode }) {
 
       return [...currentOperations, operation];
     });
-    setSuccessMessage("");
+    setIsSaved(false);
   }
 
   async function handleSaveSettings() {
     setIsSaving(true);
     setError("");
-    setSuccessMessage("");
+    setIsSaved(false);
 
     try {
       await updateQuestionSettings(roomCode, {
@@ -40,7 +40,7 @@ function QuestionSettingsPanel({ roomCode }) {
         numberTypes: ["WHOLE_NUMBERS"],
         difficulty: "EASY",
       });
-      setSuccessMessage("Question settings saved.");
+      setIsSaved(true);
     } catch (currentError) {
       setError(currentError.message);
     } finally {
@@ -50,18 +50,18 @@ function QuestionSettingsPanel({ roomCode }) {
 
   return (
     <section className="panel">
-      <h2>Question settings</h2>
-      <p>Choose which operations can appear in race questions.</p>
+      <h2>{t.questionSettings.title}</h2>
+      <p>{t.questionSettings.description}</p>
 
       <div className="checkbox-list">
         {OPERATIONS.map((operation) => (
-          <label className="checkbox-row" key={operation.value}>
+          <label className="checkbox-row" key={operation}>
             <input
-              checked={selectedOperations.includes(operation.value)}
-              onChange={() => toggleOperation(operation.value)}
+              checked={selectedOperations.includes(operation)}
+              onChange={() => toggleOperation(operation)}
               type="checkbox"
             />
-            <span>{operation.label}</span>
+            <span>{t.questionSettings.operations[operation]}</span>
           </label>
         ))}
       </div>
@@ -73,12 +73,12 @@ function QuestionSettingsPanel({ roomCode }) {
           onClick={handleSaveSettings}
           type="button"
         >
-          {isSaving ? "Saving..." : "Save settings"}
+          {isSaving ? t.questionSettings.savingButton : t.questionSettings.saveButton}
         </button>
       </div>
 
-      {successMessage && <p className="success-message">{successMessage}</p>}
-      <ErrorMessage message={error} />
+      {isSaved && <p className="success-message">{t.questionSettings.savedMessage}</p>}
+      <ErrorMessage message={error} t={t} />
     </section>
   );
 }

@@ -2,7 +2,7 @@ import { useState } from "react";
 import ErrorMessage from "../components/ErrorMessage";
 import { createRaceRoom } from "../services/raceRoomApi";
 
-function TeacherCreateRacePage({ onRoomCreated }) {
+function TeacherCreateRacePage({ t, onRoomCreated }) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -23,10 +23,10 @@ function TeacherCreateRacePage({ onRoomCreated }) {
   return (
     <section className="page">
       <div className="panel">
-        <h1>Create race room</h1>
-        <p>Create a waiting room and share the generated code with students.</p>
+        <h1>{t.teacherCreate.title}</h1>
+        <p>{t.teacherCreate.description}</p>
 
-        <ErrorMessage message={error} />
+        <ErrorMessage message={error} t={t} />
 
         <button
           className="primary-button"
@@ -34,7 +34,7 @@ function TeacherCreateRacePage({ onRoomCreated }) {
           onClick={handleCreateRoom}
           disabled={isLoading}
         >
-          {isLoading ? "Creating..." : "Create room"}
+          {isLoading ? t.teacherCreate.creatingButton : t.teacherCreate.createButton}
         </button>
       </div>
     </section>

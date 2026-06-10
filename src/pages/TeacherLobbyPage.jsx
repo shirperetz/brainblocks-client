@@ -5,7 +5,7 @@ import QuestionSettingsPanel from "../components/QuestionSettingsPanel";
 import useLobby from "../hooks/useLobby";
 import { startRace } from "../services/raceRoomApi";
 
-function TeacherLobbyPage({ roomCode }) {
+function TeacherLobbyPage({ t, roomCode }) {
   const { lobby, isLoading, error, refreshLobby } = useLobby(roomCode);
   const [isStartingRace, setIsStartingRace] = useState(false);
   const [startRaceError, setStartRaceError] = useState("");
@@ -29,8 +29,8 @@ function TeacherLobbyPage({ roomCode }) {
   return (
     <section className="page">
       <div className="panel">
-        <h1>Teacher lobby</h1>
-        <p>Share this room code with your students.</p>
+        <h1>{t.teacherLobby.title}</h1>
+        <p>{t.teacherLobby.description}</p>
         <p className="room-code">{roomCode}</p>
 
         <div className="actions">
@@ -40,7 +40,7 @@ function TeacherLobbyPage({ roomCode }) {
             onClick={refreshLobby}
             disabled={isLoading}
           >
-            {isLoading ? "Refreshing..." : "Refresh lobby"}
+            {isLoading ? t.teacherLobby.refreshingButton : t.teacherLobby.refreshButton}
           </button>
 
           {canStartRace && (
@@ -50,16 +50,18 @@ function TeacherLobbyPage({ roomCode }) {
               onClick={handleStartRace}
               disabled={isStartingRace}
             >
-              {isStartingRace ? "Starting..." : "Start race"}
+              {isStartingRace
+                ? t.teacherLobby.startingRaceButton
+                : t.teacherLobby.startRaceButton}
             </button>
           )}
         </div>
       </div>
 
-      <ErrorMessage message={error} />
-      <ErrorMessage message={startRaceError} />
-      <QuestionSettingsPanel roomCode={roomCode} />
-      <LobbyPanel lobby={lobby} />
+      <ErrorMessage message={error} t={t} />
+      <ErrorMessage message={startRaceError} t={t} />
+      <QuestionSettingsPanel t={t} roomCode={roomCode} />
+      <LobbyPanel t={t} lobby={lobby} />
     </section>
   );
 }

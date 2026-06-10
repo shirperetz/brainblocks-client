@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { VIEWS } from "../constants/views";
+import { LANGUAGES, translations } from "../i18n/translations";
 
 function useAppFlow() {
+  const [language, setLanguage] = useState(LANGUAGES.HEBREW);
   const [view, setView] = useState(VIEWS.HOME);
   const [teacherRoomCode, setTeacherRoomCode] = useState("");
   const [studentSession, setStudentSession] = useState(null);
@@ -33,7 +35,15 @@ function useAppFlow() {
     setView(VIEWS.STUDENT_LOBBY);
   }
 
+  function toggleLanguage() {
+    setLanguage((currentLanguage) =>
+      currentLanguage === LANGUAGES.HEBREW ? LANGUAGES.ENGLISH : LANGUAGES.HEBREW,
+    );
+  }
+
   return {
+    language,
+    t: translations[language],
     view,
     teacherRoomCode,
     studentSession,
@@ -42,6 +52,7 @@ function useAppFlow() {
     goToStudentJoin,
     handleTeacherRoomCreated,
     handleStudentJoined,
+    toggleLanguage,
   };
 }
 

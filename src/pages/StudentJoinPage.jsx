@@ -2,7 +2,7 @@ import { useState } from "react";
 import ErrorMessage from "../components/ErrorMessage";
 import { joinRaceRoom } from "../services/raceRoomApi";
 
-function StudentJoinPage({ onJoined }) {
+function StudentJoinPage({ t, onJoined }) {
   const [roomCode, setRoomCode] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -40,32 +40,32 @@ function StudentJoinPage({ onJoined }) {
   return (
     <section className="page">
       <div className="panel">
-        <h1>Join race room</h1>
-        <p>Enter the room code from your teacher.</p>
+        <h1>{t.studentJoin.title}</h1>
+        <p>{t.studentJoin.description}</p>
 
         <form className="form" onSubmit={handleSubmit}>
           <label className="field">
-            <span>Room code</span>
+            <span>{t.studentJoin.roomCodeLabel}</span>
             <input
               value={roomCode}
               onChange={(event) => setRoomCode(event.target.value.toUpperCase())}
-              placeholder="ABC123"
+              placeholder={t.studentJoin.roomCodePlaceholder}
             />
           </label>
 
           <label className="field">
-            <span>Display name</span>
+            <span>{t.studentJoin.displayNameLabel}</span>
             <input
               value={displayName}
               onChange={(event) => setDisplayName(event.target.value)}
-              placeholder="Your name"
+              placeholder={t.studentJoin.displayNamePlaceholder}
             />
           </label>
 
-          <ErrorMessage message={error} />
+          <ErrorMessage message={error} t={t} />
 
           <button className="primary-button" type="submit" disabled={isLoading}>
-            {isLoading ? "Joining..." : "Join lobby"}
+            {isLoading ? t.studentJoin.joiningButton : t.studentJoin.joinButton}
           </button>
         </form>
       </div>

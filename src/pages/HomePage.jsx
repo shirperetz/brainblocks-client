@@ -1,17 +1,17 @@
-function HomePage({ onTeacherStart, onStudentStart }) {
+function HomePage({ t, onTeacherStart, onStudentStart }) {
   return (
     <section className="hero-panel">
       <div>
-        <h1>BrainBlocks</h1>
-        <p>Basic race lobby setup for teachers and students.</p>
+        <h1>{t.home.title}</h1>
+        <p>{t.home.subtitle}</p>
       </div>
 
       <div className="actions">
         <button className="primary-button" type="button" onClick={onTeacherStart}>
-          Teacher
+          {t.home.teacherButton}
         </button>
         <button className="secondary-button" type="button" onClick={onStudentStart}>
-          Student
+          {t.home.studentButton}
         </button>
       </div>
     </section>

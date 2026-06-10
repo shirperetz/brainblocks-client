@@ -2,15 +2,16 @@ import ErrorMessage from "../components/ErrorMessage";
 import LobbyPanel from "../components/LobbyPanel";
 import useLobby from "../hooks/useLobby";
 
-function StudentLobbyPage({ roomCode, player }) {
+function StudentLobbyPage({ t, roomCode, player }) {
   const { lobby, isLoading, error, refreshLobby } = useLobby(roomCode);
 
   return (
     <section className="page">
       <div className="panel">
-        <h1>You joined the lobby</h1>
+        <h1>{t.studentLobby.title}</h1>
         <p>
-          Waiting in room <strong>{roomCode}</strong> as{" "}
+          {t.studentLobby.waitingPrefix} <strong>{roomCode}</strong>{" "}
+          {t.studentLobby.waitingAs}{" "}
           <strong>{player.displayName}</strong>.
         </p>
 
@@ -20,12 +21,12 @@ function StudentLobbyPage({ roomCode, player }) {
           onClick={refreshLobby}
           disabled={isLoading}
         >
-          {isLoading ? "Refreshing..." : "Refresh lobby"}
+          {isLoading ? t.studentLobby.refreshingButton : t.studentLobby.refreshButton}
         </button>
       </div>
 
-      <ErrorMessage message={error} />
-      <LobbyPanel lobby={lobby} />
+      <ErrorMessage message={error} t={t} />
+      <LobbyPanel t={t} lobby={lobby} />
     </section>
   );
 }

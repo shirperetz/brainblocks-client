@@ -1,30 +1,30 @@
-function LobbyPanel({ lobby }) {
+function LobbyPanel({ t, lobby }) {
   if (!lobby) {
-    return <p className="empty-state">No lobby loaded yet.</p>;
+    return <p className="empty-state">{t.lobby.empty}</p>;
   }
 
   return (
     <section className="panel">
-      <h2>Lobby</h2>
+      <h2>{t.lobby.title}</h2>
 
       <div className="status-grid">
         <div className="stat">
-          <span className="stat-label">Room code</span>
+          <span className="stat-label">{t.lobby.roomCode}</span>
           <span className="stat-value">{lobby.roomCode}</span>
         </div>
         <div className="stat">
-          <span className="stat-label">Status</span>
-          <span className="stat-value">{lobby.status}</span>
+          <span className="stat-label">{t.lobby.status}</span>
+          <span className="stat-value">{t.statuses[lobby.status] || lobby.status}</span>
         </div>
         <div className="stat">
-          <span className="stat-label">Players</span>
+          <span className="stat-label">{t.lobby.players}</span>
           <span className="stat-value">
             {lobby.currentPlayers} / {lobby.maxPlayers}
           </span>
         </div>
       </div>
 
-      <h3>Joined students</h3>
+      <h3>{t.lobby.joinedStudents}</h3>
       {lobby.players.length > 0 ? (
         <ul className="player-list">
           {lobby.players.map((player, index) => (
@@ -35,7 +35,7 @@ function LobbyPanel({ lobby }) {
           ))}
         </ul>
       ) : (
-        <p className="empty-state">No students have joined yet.</p>
+        <p className="empty-state">{t.lobby.noStudents}</p>
       )}
     </section>
   );
