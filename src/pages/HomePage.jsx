@@ -1,12 +1,6 @@
 import frontBackground from "../assets/Front.png";
 
 function HomePage({ t, onTeacherStart, onStudentStart }) {
-  const features = [
-    t.home.features.win,
-    t.home.features.multiplayer,
-    t.home.features.math,
-  ];
-
   return (
     <section
       className="home-page"
@@ -32,7 +26,11 @@ function HomePage({ t, onTeacherStart, onStudentStart }) {
           </div>
 
           <div className="home-role-cards">
-            <article className="role-card role-card--teacher">
+            <button
+              className="role-card role-card--teacher"
+              type="button"
+              onClick={onTeacherStart}
+            >
               <div className="role-card__scene" aria-hidden="true">
                 <span className="role-card__grid" />
                 <span className="role-card__vehicle role-card__vehicle--teacher" />
@@ -49,9 +47,13 @@ function HomePage({ t, onTeacherStart, onStudentStart }) {
                   <p>{t.home.teacher.description}</p>
                 </div>
               </div>
-            </article>
+            </button>
 
-            <article className="role-card role-card--student">
+            <button
+              className="role-card role-card--student"
+              type="button"
+              onClick={onStudentStart}
+            >
               <div className="role-card__scene" aria-hidden="true">
                 <span className="role-card__road" />
                 <span className="role-card__vehicle role-card__vehicle--student" />
@@ -67,52 +69,8 @@ function HomePage({ t, onTeacherStart, onStudentStart }) {
                   <p>{t.home.student.description}</p>
                 </div>
               </div>
-            </article>
-          </div>
-
-          <div className="home-form-grid">
-            <label className="glass-input">
-              <span>{t.home.playerNameLabel}</span>
-              <input autoComplete="name" placeholder={t.home.playerNamePlaceholder} />
-            </label>
-
-            <label className="glass-input">
-              <span>{t.home.roomCodeLabel}</span>
-              <input autoComplete="off" placeholder={t.home.roomCodePlaceholder} />
-            </label>
-          </div>
-
-          <div className="home-actions">
-            <button
-              className="neon-button neon-button--teacher"
-              type="button"
-              onClick={onTeacherStart}
-            >
-              <span aria-hidden="true">++</span>
-              {t.home.teacherButton}
-            </button>
-            <span className="home-action-divider">{t.home.orLabel}</span>
-            <button
-              className="neon-button neon-button--student"
-              type="button"
-              onClick={onStudentStart}
-            >
-              <span aria-hidden="true">&gt;&gt;</span>
-              {t.home.studentButton}
             </button>
           </div>
-        </div>
-
-        <div className="home-feature-strip">
-          {features.map((feature) => (
-            <article className="feature-badge" key={feature.title}>
-              <span aria-hidden="true">{feature.icon}</span>
-              <div>
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
-              </div>
-            </article>
-          ))}
         </div>
       </div>
     </section>
