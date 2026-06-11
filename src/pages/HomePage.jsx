@@ -1,6 +1,9 @@
-import frontBackground from "../assets/front.png";
+import frontEn from "../assets/front-en.png";
+import frontHe from "../assets/front-he.png";
+import { LANGUAGES } from "../i18n/translations";
 
-function HomePage({ t, onTeacherStart, onStudentStart }) {
+function HomePage({ language, t, onTeacherStart, onStudentStart }) {
+  const homeBackground = language === LANGUAGES.HEBREW ? frontHe : frontEn;
   const features = [
     t.home.features.win,
     t.home.features.multiplayer,
@@ -10,7 +13,7 @@ function HomePage({ t, onTeacherStart, onStudentStart }) {
   return (
     <section
       className="home-page"
-      style={{ "--home-bg-image": `url(${frontBackground})` }}
+      style={{ "--home-bg-image": `url(${homeBackground})` }}
     >
       <div className="home-orbit home-orbit--cyan" />
       <div className="home-orbit home-orbit--purple" />

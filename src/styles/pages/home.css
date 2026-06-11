@@ -1,6 +1,6 @@
 .home-page {
   background-image:
-    linear-gradient(rgba(2, 6, 18, 0.18), rgba(2, 6, 18, 0.32)),
+    linear-gradient(rgba(2, 6, 18, 0.12), rgba(2, 6, 18, 0.22)),
     var(--home-bg-image);
   background-position: center;
   background-repeat: no-repeat;
