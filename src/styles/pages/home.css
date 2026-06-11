@@ -321,6 +321,7 @@
 .home-role-cards {
   display: grid;
   align-items: center;
+  direction: ltr;
   gap: clamp(18px, 2.4vh, 28px);
   grid-template-columns: repeat(2, minmax(240px, 1fr));
 }
@@ -347,6 +348,14 @@
     box-shadow 180ms ease,
     transform 180ms ease;
   width: 100%;
+}
+
+[dir="rtl"] .home-role-cards .role-card {
+  direction: rtl;
+}
+
+[dir="ltr"] .home-role-cards .role-card {
+  direction: ltr;
 }
 
 .role-card::before {
