@@ -40,7 +40,6 @@ function AppRouter() {
 
       {view === VIEWS.HOME && (
         <HomePage
-          language={language}
           t={t}
           onTeacherStart={goToTeacherCreate}
           onStudentStart={goToStudentJoin}

@@ -229,3 +229,7 @@ export const translations = {
     errors: {},
   },
 };
+
+translations.he.home.kicker = "לובי מרוצים מתמטי";
+translations.he.home.title = "מרוץ מתמטיקה";
+translations.he.home.subtitle = "פותרים. מאיצים. מנצחים.";
