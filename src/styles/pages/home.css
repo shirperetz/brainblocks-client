@@ -81,7 +81,8 @@
 }
 
 .home-station-frame {
-  border-inline: 2px solid rgba(125, 211, 252, 0.22);
+  border-left: 2px solid rgba(125, 211, 252, 0.22);
+  border-right: 2px solid rgba(125, 211, 252, 0.22);
   inset: 10px 18px auto;
   height: 44%;
   pointer-events: none;
@@ -169,7 +170,8 @@
     repeating-linear-gradient(0deg, rgba(125, 211, 252, 0.12) 0 1px, transparent 1px 54px);
   bottom: -12vh;
   height: 48%;
-  inset-inline: 0;
+  left: 0;
+  right: 0;
   transform: perspective(720px) rotateX(64deg);
   transform-origin: bottom;
   z-index: -1;
@@ -182,7 +184,8 @@
   bottom: 23%;
   filter: blur(18px);
   height: 28%;
-  inset-inline: 0;
+  left: 0;
+  right: 0;
   opacity: 0.7;
   z-index: -2;
 }
@@ -272,13 +275,13 @@
 
 .home-dashboard-panel::before {
   border-bottom: 0;
-  border-inline-end: 0;
+  border-right: 0;
   left: 18px;
   top: 18px;
 }
 
 .home-dashboard-panel::after {
-  border-inline-start: 0;
+  border-left: 0;
   border-top: 0;
   bottom: 18px;
   right: 18px;
@@ -311,7 +314,8 @@
 .home-panel-title span::after {
   content: "»";
   opacity: 0.85;
-  padding-inline: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .home-panel-title span::before {
@@ -488,7 +492,8 @@
   display: grid;
   gap: 16px;
   grid-template-columns: auto 1fr;
-  inset-inline: 0;
+  left: 0;
+  right: 0;
   padding: clamp(120px, 17vh, 158px) clamp(20px, 2.6vw, 32px) clamp(22px, 3vh, 34px);
   position: relative;
   z-index: 2;
