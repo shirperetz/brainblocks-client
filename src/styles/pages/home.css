@@ -143,11 +143,11 @@
   flex-direction: column;
   gap: clamp(7px, 1.2vh, 14px);
   height: 100%;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 0 auto;
   max-height: 100vh;
   max-width: min(1180px, 100vw);
-  padding: clamp(7px, 1.3vh, 12px) clamp(12px, 2vw, 24px);
+  padding: clamp(205px, 28vh, 285px) clamp(12px, 2vw, 24px) clamp(8px, 1.2vh, 14px);
   position: relative;
   z-index: 1;
   width: 100%;
@@ -661,9 +661,14 @@
 }
 
 @media (max-width: 900px) {
+  .home-hero-shell {
+    gap: 10px;
+    padding-top: clamp(150px, 22vh, 205px);
+  }
+
   .home-dashboard-panel {
     clip-path: none;
-    padding: 22px;
+    padding: clamp(14px, 2vh, 20px);
     width: min(100% - 20px, 680px);
   }
 
@@ -679,7 +684,7 @@
   }
 
   .role-card {
-    min-height: 170px;
+    min-height: clamp(124px, 18vh, 170px);
   }
 }
 
@@ -688,23 +693,42 @@
     height: 100vh;
   }
 
+  .home-hero-shell {
+    gap: 8px;
+    padding-top: clamp(118px, 18vh, 160px);
+  }
+
+  .home-dashboard-panel {
+    gap: 8px;
+  }
+
   .role-card__content {
     grid-template-columns: 1fr;
-    padding-top: 84px;
+    padding-top: clamp(70px, 11vh, 84px);
   }
 }
 
 @media (max-height: 760px) and (min-width: 760px) {
+  .home-hero-shell {
+    gap: 9px;
+    padding-top: clamp(165px, 22vh, 190px);
+  }
+
+  .home-dashboard-panel {
+    gap: 9px;
+    padding-block: 14px;
+  }
+
   .role-card {
-    min-height: 176px;
+    min-height: 158px;
   }
 
   .role-card__scene {
-    height: 94px;
+    height: 84px;
   }
 
   .role-card__content {
-    padding-top: 94px;
+    padding-top: 84px;
   }
 
   .feature-badge {
