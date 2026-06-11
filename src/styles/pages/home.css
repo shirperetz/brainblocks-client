@@ -187,90 +187,6 @@
   z-index: -2;
 }
 
-.home-hero-top {
-  flex: 0 0 auto;
-  height: clamp(126px, 22vh, 208px);
-  overflow: hidden;
-  padding: clamp(16px, 3vh, 34px) 28px 0;
-  position: relative;
-  text-align: center;
-  width: 100%;
-}
-
-.home-hero-kicker {
-  color: #7dd3fc;
-  font-size: clamp(0.68rem, 1.2vw, 0.82rem);
-  font-weight: 900;
-  letter-spacing: 0.18em;
-  margin: 0 0 clamp(5px, 0.8vh, 10px);
-  text-transform: uppercase;
-  text-shadow: 0 0 14px rgba(0, 217, 255, 0.7);
-}
-
-.home-hero-top h1 {
-  color: #effbff;
-  font-size: clamp(3rem, 8.15vw, 7rem);
-  font-weight: 950;
-  letter-spacing: 0;
-  line-height: 0.82;
-  margin: 0;
-  text-shadow:
-    0 0 10px rgba(224, 246, 255, 0.95),
-    0 0 24px rgba(0, 217, 255, 0.9),
-    0 0 56px rgba(37, 99, 235, 0.72),
-    0 18px 40px rgba(0, 0, 0, 0.62);
-  text-transform: uppercase;
-}
-
-.home-hero-subtitle {
-  color: #ff6ff8;
-  font-size: clamp(0.95rem, 2.2vw, 1.38rem);
-  font-weight: 950;
-  letter-spacing: 0.12em;
-  margin-top: clamp(8px, 1.5vh, 16px);
-  text-shadow:
-    0 0 12px rgba(255, 111, 248, 0.92),
-    0 0 26px rgba(168, 85, 247, 0.72);
-}
-
-.home-formula-cloud {
-  inset: 0;
-  pointer-events: none;
-  position: absolute;
-}
-
-.home-formula-cloud span {
-  color: rgba(125, 231, 255, 0.9);
-  font-size: clamp(0.9rem, 2vw, 1.5rem);
-  font-weight: 950;
-  position: absolute;
-  text-shadow: 0 0 18px rgba(0, 217, 255, 0.75);
-}
-
-.home-formula-cloud span:nth-child(1) {
-  left: 13%;
-  top: 34%;
-  transform: rotate(-8deg);
-}
-
-.home-formula-cloud span:nth-child(2) {
-  color: rgba(245, 158, 11, 0.96);
-  right: 10%;
-  top: 30%;
-  transform: rotate(8deg);
-}
-
-.home-formula-cloud span:nth-child(3) {
-  bottom: 20%;
-  left: 23%;
-}
-
-.home-formula-cloud span:nth-child(4) {
-  bottom: 24%;
-  color: rgba(216, 180, 254, 0.92);
-  right: 24%;
-}
-
 .home-dashboard-panel {
   background:
     linear-gradient(145deg, rgba(3, 12, 31, 0.96), rgba(7, 10, 28, 0.84)),
@@ -745,11 +661,6 @@
 }
 
 @media (max-width: 900px) {
-  .home-hero-top {
-    height: clamp(118px, 19vh, 180px);
-    padding: 18px 18px 0;
-  }
-
   .home-dashboard-panel {
     clip-path: none;
     padding: 22px;
@@ -777,27 +688,6 @@
     height: 100vh;
   }
 
-  .home-hero-top h1 {
-    font-size: clamp(2.25rem, 14vw, 3.8rem);
-  }
-
-  .home-hero-subtitle {
-    letter-spacing: 0.05em;
-  }
-
-  .home-formula-cloud span:nth-child(3),
-  .home-formula-cloud span:nth-child(4) {
-    display: none;
-  }
-
-  .home-formula-cloud span:nth-child(1) {
-    left: 4%;
-  }
-
-  .home-formula-cloud span:nth-child(2) {
-    right: 4%;
-  }
-
   .role-card__content {
     grid-template-columns: 1fr;
     padding-top: 84px;
@@ -805,14 +695,6 @@
 }
 
 @media (max-height: 760px) and (min-width: 760px) {
-  .home-hero-top {
-    height: 164px;
-  }
-
-  .home-hero-top h1 {
-    font-size: clamp(3rem, 7vw, 5.6rem);
-  }
-
   .role-card {
     min-height: 176px;
   }

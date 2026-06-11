@@ -1,7 +1,6 @@
 import frontBackground from "../assets/front.png";
 
 function HomePage({ t, onTeacherStart, onStudentStart }) {
-  const formulas = ["7x(3^2)+2?", "a^2 + b^2 = c^2", "sqrt(64)", "3/12"];
   const features = [
     t.home.features.win,
     t.home.features.multiplayer,
@@ -20,18 +19,6 @@ function HomePage({ t, onTeacherStart, onStudentStart }) {
       <div className="home-light-trail home-light-trail--purple" aria-hidden="true" />
 
       <div className="home-hero-shell">
-        <header className="home-hero-top">
-          <div className="home-formula-cloud" aria-hidden="true">
-            {formulas.map((formula) => (
-              <span key={formula}>{formula}</span>
-            ))}
-          </div>
-
-          <p className="home-hero-kicker">{t.home.kicker}</p>
-          <h1>{t.home.title}</h1>
-          <p className="home-hero-subtitle">{t.home.subtitle}</p>
-        </header>
-
         <div className="home-dashboard-panel">
           <div className="home-dashboard-ridge" aria-hidden="true" />
 
