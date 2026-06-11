@@ -1,0 +1,58 @@
+.teacher-create-page {
+  align-items: center;
+  background-image:
+    linear-gradient(rgba(2, 6, 18, 0.12), rgba(2, 6, 18, 0.28)),
+    var(--teacher-bg-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--color-text);
+  display: grid;
+  height: 100vh;
+  justify-items: center;
+  overflow: hidden;
+  padding: clamp(18px, 4vh, 42px);
+  position: relative;
+  width: 100vw;
+}
+
+.teacher-create-page::before {
+  background:
+    radial-gradient(circle at 24% 20%, rgba(0, 217, 255, 0.22), transparent 30%),
+    radial-gradient(circle at 78% 18%, rgba(168, 85, 247, 0.2), transparent 32%),
+    linear-gradient(90deg, rgba(2, 6, 18, 0.34), rgba(2, 6, 18, 0.08), rgba(2, 6, 18, 0.34));
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.teacher-create-panel {
+  background:
+    linear-gradient(145deg, rgba(3, 12, 31, 0.9), rgba(7, 10, 28, 0.78)),
+    radial-gradient(circle at 16% 18%, rgba(0, 217, 255, 0.18), transparent 36%);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(125, 231, 255, 0.5);
+  box-shadow:
+    inset 0 0 42px rgba(0, 217, 255, 0.1),
+    0 0 44px rgba(0, 217, 255, 0.16),
+    0 30px 90px rgba(0, 0, 0, 0.5);
+  color: #eef8ff;
+  max-width: min(520px, calc(100vw - 32px));
+  position: relative;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+}
+
+.teacher-create-panel h1 {
+  color: #f4fbff;
+  margin-top: 0;
+  text-shadow:
+    0 0 18px rgba(0, 217, 255, 0.68),
+    0 2px 20px rgba(0, 0, 0, 0.72);
+}
+
+.teacher-create-panel p {
+  color: #dbeafe;
+}

@@ -96,11 +96,34 @@ input {
   width: 100vw;
 }
 
+.app-shell:has(.teacher-create-page) {
+  height: 100vh;
+  overflow: hidden;
+  padding: 0;
+  width: 100vw;
+}
+
 .app-shell:has(.home-page) .language-toggle {
   left: 12px;
   margin: 0;
   position: fixed;
   top: 12px;
+  z-index: 20;
+}
+
+.app-shell:has(.teacher-create-page) .language-toggle {
+  left: 12px;
+  margin: 0;
+  position: fixed;
+  top: 12px;
+  z-index: 20;
+}
+
+.app-shell:has(.teacher-create-page) .link-button {
+  left: 12px;
+  margin: 0;
+  position: fixed;
+  top: 56px;
   z-index: 20;
 }
 

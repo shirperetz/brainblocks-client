@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ErrorMessage from "../components/ErrorMessage";
 import { createRaceRoom } from "../services/raceRoomApi";
+import teacherBackground from "../assets/space-race-lobby-background.png";
 
 function TeacherCreateRacePage({ t, onRoomCreated }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -21,8 +22,11 @@ function TeacherCreateRacePage({ t, onRoomCreated }) {
   }
 
   return (
-    <section className="page">
-      <div className="panel">
+    <section
+      className="page teacher-create-page"
+      style={{ "--teacher-bg-image": `url(${teacherBackground})` }}
+    >
+      <div className="panel teacher-create-panel">
         <h1>{t.teacherCreate.title}</h1>
         <p>{t.teacherCreate.description}</p>
 
