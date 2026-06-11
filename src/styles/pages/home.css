@@ -147,7 +147,7 @@
   margin: 0 auto;
   max-height: 100vh;
   max-width: min(1180px, 100vw);
-  padding: clamp(14px, 2.6vh, 30px) clamp(12px, 2vw, 24px) clamp(8px, 1.2vh, 14px);
+  padding: clamp(32px, 5vh, 56px) clamp(12px, 2vw, 24px) clamp(8px, 1.2vh, 14px);
   position: relative;
   z-index: 1;
   width: 100%;
@@ -548,7 +548,7 @@
 @media (max-width: 900px) {
   .home-hero-shell {
     gap: 10px;
-    padding-top: clamp(16px, 3.2vh, 28px);
+    padding-top: clamp(24px, 4.2vh, 40px);
   }
 
   .home-hero-top h1 {
@@ -583,7 +583,7 @@
 
   .home-hero-shell {
     gap: 8px;
-    padding-top: clamp(12px, 2.8vh, 22px);
+    padding-top: clamp(18px, 3.6vh, 30px);
   }
 
   .home-hero-top h1 {
@@ -609,7 +609,7 @@
 @media (max-height: 760px) and (min-width: 760px) {
   .home-hero-shell {
     gap: 9px;
-    padding-top: clamp(12px, 2.6vh, 24px);
+    padding-top: clamp(18px, 3.4vh, 30px);
   }
 
   .home-hero-top h1 {
