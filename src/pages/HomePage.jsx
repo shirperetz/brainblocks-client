@@ -1,5 +1,29 @@
 import frontBackground from "../assets/Front.png";
 
+function TeacherIcon() {
+  return (
+    <svg className="role-card__svg" viewBox="0 0 48 48" aria-hidden="true">
+      <path d="M8 18L24 10L40 18L24 26L8 18Z" />
+      <path d="M15 23V31C15 34 19 37 24 37C29 37 33 34 33 31V23" />
+      <path d="M40 18V29" />
+      <path d="M37 32H43" />
+    </svg>
+  );
+}
+
+function StudentIcon() {
+  return (
+    <svg className="role-card__svg" viewBox="0 0 48 48" aria-hidden="true">
+      <path d="M13 29C13 20 18 14 24 14C30 14 35 20 35 29" />
+      <path d="M13 29H35L32 37H16L13 29Z" />
+      <path d="M18 25H30" />
+      <path d="M17 33H31" />
+      <path d="M11 29H7" />
+      <path d="M41 29H37" />
+    </svg>
+  );
+}
+
 function HomePage({ t, onTeacherStart, onStudentStart }) {
   return (
     <section
@@ -40,7 +64,7 @@ function HomePage({ t, onTeacherStart, onStudentStart }) {
 
               <div className="role-card__content">
                 <div className="role-card__icon" aria-hidden="true">
-                  <span>[][]</span>
+                  <TeacherIcon />
                 </div>
                 <div>
                   <h2>{t.home.teacher.title}</h2>
@@ -57,12 +81,11 @@ function HomePage({ t, onTeacherStart, onStudentStart }) {
               <div className="role-card__scene" aria-hidden="true">
                 <span className="role-card__road" />
                 <span className="role-card__vehicle role-card__vehicle--student" />
-                <span className="role-card__speed">728</span>
               </div>
 
               <div className="role-card__content">
                 <div className="role-card__icon" aria-hidden="true">
-                  <span>//</span>
+                  <StudentIcon />
                 </div>
                 <div>
                   <h2>{t.home.student.title}</h2>

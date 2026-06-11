@@ -147,7 +147,7 @@
   margin: 0 auto;
   max-height: 100vh;
   max-width: min(1180px, 100vw);
-  padding: clamp(32px, 5vh, 56px) clamp(12px, 2vw, 24px) clamp(8px, 1.2vh, 14px);
+  padding: clamp(32px, 100vh, 116px) clamp(50px, 2vw, 24px) clamp(8px, 1.2vh, 14px);
   position: relative;
   z-index: 1;
   width: 100%;
@@ -405,8 +405,7 @@
 .role-card__grid,
 .role-card__road,
 .role-card__vehicle,
-.role-card__hud,
-.role-card__speed {
+.role-card__hud {
   position: absolute;
 }
 
@@ -474,22 +473,6 @@
   width: 54px;
 }
 
-.role-card__speed {
-  align-items: center;
-  border: 1px solid var(--role-border);
-  border-radius: 999px;
-  bottom: 24px;
-  color: #fff;
-  display: grid;
-  font-size: 0.72rem;
-  font-weight: 950;
-  height: 42px;
-  justify-items: center;
-  right: 24px;
-  text-shadow: 0 0 12px var(--role-glow);
-  width: 42px;
-}
-
 .role-card__content {
   align-items: end;
   bottom: 0;
@@ -510,14 +493,27 @@
   box-shadow:
     inset 0 0 18px var(--role-glow-soft),
     0 0 24px var(--role-glow-soft);
-  color: #effbff;
+  color: var(--role-border-strong);
   display: grid;
-  font-size: 0.72rem;
-  font-weight: 950;
   height: clamp(46px, 6.4vh, 58px);
   justify-items: center;
-  letter-spacing: 0.08em;
+  place-items: center;
   width: clamp(46px, 6.4vh, 58px);
+}
+
+.role-card__svg {
+  display: block;
+  filter: drop-shadow(0 0 8px var(--role-glow));
+  height: 62%;
+  width: 62%;
+}
+
+.role-card__svg path {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3.2;
 }
 
 .role-card h2 {
