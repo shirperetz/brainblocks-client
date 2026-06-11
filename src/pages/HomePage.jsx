@@ -20,7 +20,6 @@ function HomePage({ t, onTeacherStart, onStudentStart }) {
 
       <div className="home-hero-shell">
         <header className="home-hero-top">
-          <p className="home-hero-kicker">{t.home.kicker}</p>
           <h1>{t.home.title}</h1>
           <p className="home-hero-subtitle">{t.home.subtitle}</p>
         </header>

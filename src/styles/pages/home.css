@@ -194,18 +194,6 @@
   width: min(980px, 100%);
 }
 
-.home-hero-kicker {
-  color: #7dd3fc;
-  font-size: clamp(0.72rem, 1.25vw, 0.9rem);
-  font-weight: 900;
-  letter-spacing: 0.18em;
-  margin: 0 0 clamp(6px, 0.9vh, 10px);
-  text-transform: uppercase;
-  text-shadow:
-    0 0 14px rgba(0, 217, 255, 0.75),
-    0 2px 12px rgba(0, 0, 0, 0.78);
-}
-
 .home-hero-top h1 {
   color: #effbff;
   font-size: clamp(3rem, 8.2vw, 7rem);
@@ -251,7 +239,7 @@
   display: grid;
   flex: 0 1 auto;
   gap: clamp(9px, 1.25vh, 15px);
-  margin: 0 auto;
+  margin: clamp(10px, 2.2vh, 24px) auto 0;
   padding: clamp(15px, 2vh, 22px) clamp(18px, 2.2vw, 26px);
   position: relative;
   width: min(970px, calc(100% - 26px));
@@ -722,6 +710,7 @@
 
   .home-dashboard-panel {
     clip-path: none;
+    margin-top: clamp(8px, 1.8vh, 16px);
     padding: clamp(14px, 2vh, 20px);
     width: min(100% - 20px, 680px);
   }
@@ -752,11 +741,6 @@
     padding-top: clamp(12px, 2.8vh, 22px);
   }
 
-  .home-hero-kicker {
-    font-size: 0.68rem;
-    margin-bottom: 5px;
-  }
-
   .home-hero-top h1 {
     font-size: clamp(2rem, 13vw, 3.25rem);
   }
@@ -768,6 +752,7 @@
 
   .home-dashboard-panel {
     gap: 8px;
+    margin-top: clamp(6px, 1.4vh, 12px);
   }
 
   .role-card__content {
@@ -782,10 +767,6 @@
     padding-top: clamp(12px, 2.6vh, 24px);
   }
 
-  .home-hero-kicker {
-    margin-bottom: 4px;
-  }
-
   .home-hero-top h1 {
     font-size: clamp(2.8rem, 6.5vw, 5.2rem);
   }
@@ -796,6 +777,7 @@
 
   .home-dashboard-panel {
     gap: 9px;
+    margin-top: clamp(6px, 1.4vh, 12px);
     padding-block: 14px;
   }
 

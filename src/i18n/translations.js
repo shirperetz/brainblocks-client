@@ -10,7 +10,6 @@ export const translations = {
     toggleLabel: "English",
     backHome: "חזרה למסך הבית",
     home: {
-      kicker: "לובי מרוצים מתמטי",
       title: "מרוץ חשבון",
       subtitle: "פותרים. מאיצים. מנצחים.",
       panelTitle: "בחרו תפקיד",
@@ -129,7 +128,6 @@ export const translations = {
     toggleLabel: "עברית",
     backHome: "Back home",
     home: {
-      kicker: "Math Racing Lobby",
       title: "MATH RACERS",
       subtitle: "Solve. Boost. Win.",
       panelTitle: "Choose your role",
@@ -230,6 +228,5 @@ export const translations = {
   },
 };
 
-translations.he.home.kicker = "לובי מרוצים מתמטי";
 translations.he.home.title = "מרוץ מתמטיקה";
 translations.he.home.subtitle = "פותרים. מאיצים. מנצחים.";
