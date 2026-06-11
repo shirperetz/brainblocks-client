@@ -214,7 +214,7 @@
   font-size: clamp(0.95rem, 2.15vw, 1.35rem);
   font-weight: 950;
   letter-spacing: 0.1em;
-  margin: clamp(8px, 1.4vh, 15px) 0 0;
+  margin: clamp(16px, 2.4vh, 28px) 0 0;
   text-shadow:
     0 0 12px rgba(255, 111, 248, 0.86),
     0 0 26px rgba(168, 85, 247, 0.68),
@@ -747,7 +747,7 @@
 
   .home-hero-subtitle {
     font-size: clamp(0.78rem, 4.3vw, 1rem);
-    margin-top: 6px;
+    margin-top: clamp(10px, 2vh, 16px);
   }
 
   .home-dashboard-panel {
@@ -772,7 +772,7 @@
   }
 
   .home-hero-subtitle {
-    margin-top: 6px;
+    margin-top: clamp(10px, 2vh, 18px);
   }
 
   .home-dashboard-panel {
