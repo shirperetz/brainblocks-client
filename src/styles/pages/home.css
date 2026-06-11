@@ -239,7 +239,7 @@
   display: grid;
   flex: 0 1 auto;
   gap: clamp(18px, 2.8vh, 30px);
-  margin: clamp(18px, 3vh, 34px) auto 0;
+  margin: clamp(54px, 8vh, 96px) auto 0;
   padding: clamp(24px, 3.2vh, 34px) clamp(24px, 3.2vw, 42px) clamp(28px, 4vh, 44px);
   position: relative;
   width: min(980px, calc(100% - 32px));
@@ -562,7 +562,7 @@
 
   .home-dashboard-panel {
     clip-path: none;
-    margin-top: clamp(8px, 1.8vh, 16px);
+    margin-top: clamp(28px, 5vh, 54px);
     padding: clamp(18px, 2.4vh, 26px);
     width: min(100% - 20px, 680px);
   }
@@ -597,7 +597,7 @@
 
   .home-dashboard-panel {
     gap: 8px;
-    margin-top: clamp(6px, 1.4vh, 12px);
+    margin-top: clamp(16px, 3vh, 28px);
   }
 
   .role-card__content {
@@ -622,7 +622,7 @@
 
   .home-dashboard-panel {
     gap: 9px;
-    margin-top: clamp(6px, 1.4vh, 12px);
+    margin-top: clamp(16px, 3vh, 30px);
     padding-block: 14px;
   }
 
