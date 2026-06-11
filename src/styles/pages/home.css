@@ -1,7 +1,13 @@
 .home-page {
+  background-image:
+    linear-gradient(rgba(2, 6, 18, 0.18), rgba(2, 6, 18, 0.32)),
+    var(--home-bg-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   contain: paint;
   color: var(--color-text);
-  height: 100svh;
+  height: 100vh;
   isolation: isolate;
   overflow: hidden;
   position: relative;
@@ -18,16 +24,14 @@
 
 .home-page::before {
   background:
-    radial-gradient(circle at 8% 39%, rgba(46, 129, 255, 0.58), transparent 16%),
-    radial-gradient(circle at 89% 39%, rgba(255, 177, 57, 0.28), transparent 13%),
-    radial-gradient(circle at 78% 18%, rgba(177, 76, 255, 0.55), transparent 21%),
-    radial-gradient(circle at 22% 12%, rgba(0, 200, 255, 0.36), transparent 19%),
-    radial-gradient(circle at 50% 92%, rgba(0, 217, 255, 0.35), transparent 33%),
-    linear-gradient(145deg, #02040d 0%, #061026 38%, #170725 100%);
+    radial-gradient(circle at 12% 20%, rgba(0, 217, 255, 0.2), transparent 24%),
+    radial-gradient(circle at 88% 24%, rgba(168, 85, 247, 0.18), transparent 24%),
+    linear-gradient(90deg, rgba(2, 6, 18, 0.26), rgba(2, 6, 18, 0.08), rgba(2, 6, 18, 0.28));
   box-shadow:
-    inset 0 0 130px rgba(0, 217, 255, 0.1),
-    inset 0 0 220px rgba(0, 0, 0, 0.42);
+    inset 0 0 90px rgba(0, 217, 255, 0.08),
+    inset 0 0 170px rgba(0, 0, 0, 0.36);
   inset: 0;
+  z-index: 0;
 }
 
 .home-page::after {
@@ -43,7 +47,8 @@
     96px 96px,
     128px 128px;
   inset: 0;
-  opacity: 0.34;
+  opacity: 0.18;
+  z-index: 0;
 }
 
 .home-light-trail {
@@ -52,7 +57,7 @@
   height: 3px;
   pointer-events: none;
   position: absolute;
-  z-index: -1;
+  z-index: 0;
 }
 
 .home-light-trail--cyan {
@@ -81,7 +86,7 @@
   height: 44%;
   pointer-events: none;
   position: absolute;
-  z-index: -1;
+  z-index: 0;
 }
 
 .home-station-frame::before,
@@ -114,7 +119,7 @@
   filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.25));
   pointer-events: none;
   position: absolute;
-  z-index: -1;
+  z-index: 0;
 }
 
 .home-orbit--cyan {
@@ -140,10 +145,11 @@
   height: 100%;
   justify-content: center;
   margin: 0 auto;
-  max-height: 100svh;
+  max-height: 100vh;
   max-width: min(1180px, 100vw);
   padding: clamp(7px, 1.3vh, 12px) clamp(12px, 2vw, 24px);
   position: relative;
+  z-index: 1;
   width: 100%;
 }
 
@@ -768,7 +774,7 @@
 
 @media (max-width: 560px) {
   .home-page {
-    height: 100svh;
+    height: 100vh;
   }
 
   .home-hero-top h1 {

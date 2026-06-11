@@ -1,3 +1,5 @@
+import frontBackground from "../assets/front.png";
+
 function HomePage({ t, onTeacherStart, onStudentStart }) {
   const formulas = ["7x(3^2)+2?", "a^2 + b^2 = c^2", "sqrt(64)", "3/12"];
   const features = [
@@ -7,7 +9,10 @@ function HomePage({ t, onTeacherStart, onStudentStart }) {
   ];
 
   return (
-    <section className="home-page">
+    <section
+      className="home-page"
+      style={{ "--home-bg-image": `url(${frontBackground})` }}
+    >
       <div className="home-orbit home-orbit--cyan" />
       <div className="home-orbit home-orbit--purple" />
       <div className="home-station-frame" aria-hidden="true" />
