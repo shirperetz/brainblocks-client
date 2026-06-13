@@ -44,61 +44,66 @@ function StudentRacePage({ t, roomCode, lobby, player }) {
           <p className="student-race-message">{labels.message}</p>
         </header>
 
-        <section className="student-race-panel student-race-status" dir={t.direction}>
-          <div>
-            <span>{labels.roomCode}</span>
-            <strong>{roomCode}</strong>
-          </div>
-          <div>
-            <span>{labels.status}</span>
-            <strong>{t.statuses?.[roomStatus] || roomStatus}</strong>
-          </div>
-          <div>
-            <span>{labels.yourPosition}</span>
-            <strong>{playerPosition}</strong>
-          </div>
-        </section>
-
-        <main className="student-race-panel student-race-track" dir={t.direction}>
-          <div className="race-panel-heading">{labels.track}</div>
-          <div className="race-track-visual">
-            <img src={trackPreviewImage} alt="" />
-            <div className="race-track-overlay" />
-          </div>
-        </main>
-
-        <aside className="student-race-panel student-race-players" dir={t.direction}>
-          <div className="race-panel-heading">{labels.livePanel}</div>
-          {players.length > 0 ? (
-            <ul className="student-race-players-list">
-              {players.map((p, index) => (
-                <li key={p.id} className={p.id === player.id ? "current-player" : ""}>
-                  <span className="player-rank">{index + 1}</span>
-                  <strong className="player-name">{p.displayName}</strong>
-                  {p.id === player.id && (
-                    <span className="player-you">{t.studentRace?.you || "(You)"}</span>
-                  )}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>{t.lobby.noStudents}</p>
-          )}
-        </aside>
-
-        <section className="student-race-panel student-player-card" dir={t.direction}>
-          <div className="race-panel-heading">{labels.yourPosition}</div>
-          <div className="player-card-content">
-            <div className="player-card-name">{player.displayName}</div>
-            <div className="player-card-status">
-              <span>{labels.status}:</span>
+        <div className="student-race-content">
+          <section className="student-race-status" dir={t.direction}>
+            <div>
+              <span>{labels.roomCode}</span>
+              <strong>{roomCode}</strong>
+            </div>
+            <div>
+              <span>{labels.status}</span>
               <strong>{t.statuses?.[roomStatus] || roomStatus}</strong>
             </div>
-            <div className="player-card-placeholder">
-              <div className="placeholder-icon">🚗</div>
+            <div>
+              <span>{labels.players}</span>
+              <strong>{players.length}</strong>
             </div>
-          </div>
-        </section>
+            <div>
+              <span>{labels.yourPosition}</span>
+              <strong>{playerPosition}</strong>
+            </div>
+          </section>
+
+          <main className="student-race-track" dir={t.direction}>
+            <div className="race-panel-heading">{labels.track}</div>
+            <div className="race-track-visual">
+              <img src={trackPreviewImage} alt="" />
+              <div className="race-track-overlay" />
+            </div>
+          </main>
+
+          <aside className="student-race-players" dir={t.direction}>
+            <div className="race-panel-heading">{labels.livePanel}</div>
+            {players.length > 0 ? (
+              <ul className="student-race-players-list">
+                {players.map((p, index) => (
+                  <li key={p.id} className={p.id === player.id ? "current-player" : ""}>
+                    <span className="player-rank">{index + 1}</span>
+                    <span className="player-name">{p.displayName}</span>
+                    {p.id === player.id && (
+                      <span className="player-you">{t.studentRace?.you || "(You)"}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>{t.lobby.noStudents}</p>
+            )}
+
+            <section className="student-player-card">
+              <div className="player-card-content">
+                <div className="player-card-name">{player.displayName}</div>
+                <div className="player-card-status">
+                  <span>{labels.status}</span>
+                  <strong>{t.statuses?.[roomStatus] || roomStatus}</strong>
+                </div>
+                <div className="player-card-placeholder">
+                  <div className="placeholder-icon">🚗</div>
+                </div>
+              </div>
+            </section>
+          </aside>
+        </div>
       </div>
     </section>
   );
