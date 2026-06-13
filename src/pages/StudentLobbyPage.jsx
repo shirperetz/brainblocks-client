@@ -1,9 +1,45 @@
+import { useEffect, useRef } from "react";
 import ErrorMessage from "../components/ErrorMessage";
 import LobbyPanel from "../components/LobbyPanel";
 import useLobby from "../hooks/useLobby";
+import { getLobby } from "../services/raceRoomApi";
 
-function StudentLobbyPage({ t, roomCode, player }) {
+function StudentLobbyPage({ t, roomCode, player, onRaceStarted }) {
   const { lobby, isLoading, error, refreshLobby } = useLobby(roomCode);
+  const hasNavigatedRef = useRef(false);
+
+  useEffect(() => {
+    if (!roomCode) {
+      return undefined;
+    }
+
+    let isActive = true;
+
+    async function checkRaceStatus() {
+      try {
+        const nextLobby = await getLobby(roomCode);
+
+        if (
+          isActive &&
+          nextLobby?.status === "IN_PROGRESS" &&
+          !hasNavigatedRef.current
+        ) {
+          hasNavigatedRef.current = true;
+          onRaceStarted(roomCode, nextLobby, player);
+        }
+      } catch (currentError) {
+        console.error("[StudentLobbyPage] Error checking race status", currentError);
+      }
+    }
+
+    checkRaceStatus();
+    const intervalId = window.setInterval(checkRaceStatus, 2500);
+
+    return () => {
+      isActive = false;
+      window.clearInterval(intervalId);
+    };
+  }, [roomCode, player, onRaceStarted]);
 
   return (
     <section className="page">

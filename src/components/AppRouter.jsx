@@ -8,6 +8,7 @@ import TeacherLobbyPage from "../pages/TeacherLobbyPage";
 import RaceGamePage from "../pages/RaceGamePage";
 import StudentJoinPage from "../pages/StudentJoinPage";
 import StudentLobbyPage from "../pages/StudentLobbyPage";
+import StudentRacePage from "../pages/StudentRacePage";
 
 function AppRouter() {
   const {
@@ -17,11 +18,13 @@ function AppRouter() {
     teacherRoomCode,
     teacherRace,
     studentSession,
+    studentRace,
     goHome,
     goToTeacherCreate,
     goToStudentJoin,
     handleTeacherRaceStarted,
     handleStudentJoined,
+    handleStudentRaceStarted,
     toggleLanguage,
   } = useAppFlow();
 
@@ -82,6 +85,16 @@ function AppRouter() {
           t={t}
           roomCode={studentSession.roomCode}
           player={studentSession.player}
+          onRaceStarted={handleStudentRaceStarted}
+        />
+      )}
+
+      {view === VIEWS.STUDENT_RACE && studentRace && (
+        <StudentRacePage
+          t={t}
+          roomCode={studentRace.roomCode}
+          lobby={studentRace.lobby}
+          player={studentRace.player}
         />
       )}
     </main>

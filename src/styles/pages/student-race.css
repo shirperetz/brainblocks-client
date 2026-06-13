@@ -1,0 +1,327 @@
+.student-race-page {
+  background-image:
+    linear-gradient(rgba(1, 4, 14, 0.08), rgba(1, 4, 14, 0.22)),
+    var(--race-bg-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #eaf7ff;
+  height: 100vh;
+  overflow: hidden;
+  padding: 24px;
+  position: relative;
+  width: 100vw;
+}
+
+.student-race-page::before {
+  background:
+    linear-gradient(90deg, rgba(0, 10, 30, 0.28), transparent 28%, transparent 72%, rgba(0, 10, 30, 0.28)),
+    repeating-linear-gradient(0deg, rgba(85, 211, 255, 0.05) 0 1px, transparent 1px 12px);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.student-race-shell {
+  display: grid;
+  gap: 16px;
+  grid-template-areas:
+    "header header header"
+    "status status card"
+    "track track card"
+    "players players card";
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(220px, 0.26fr);
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  height: 100%;
+  margin: 0 auto;
+  max-width: 1500px;
+  position: relative;
+  z-index: 1;
+}
+
+.student-race-header {
+  grid-area: header;
+  justify-self: end;
+  text-align: end;
+  text-transform: uppercase;
+}
+
+.student-race-header p,
+.student-race-header h1 {
+  margin: 0;
+}
+
+.student-race-header p {
+  color: #7fe5ff;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.student-race-header h1 {
+  color: #f2fbff;
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-style: italic;
+  font-weight: 950;
+  text-shadow:
+    0 0 20px rgba(53, 220, 255, 0.62),
+    0 0 32px rgba(155, 69, 255, 0.32);
+}
+
+.student-race-message {
+  color: #ff6ff8 !important;
+  font-size: clamp(0.95rem, 2vw, 1.35rem);
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  margin-top: 12px !important;
+  text-shadow:
+    0 0 12px rgba(255, 111, 248, 0.86),
+    0 0 26px rgba(168, 85, 247, 0.68);
+}
+
+.student-race-panel {
+  background:
+    linear-gradient(145deg, rgba(2, 14, 38, 0.84), rgba(2, 8, 25, 0.72)),
+    radial-gradient(circle at 18% 0, rgba(53, 220, 255, 0.15), transparent 34%);
+  border: 1px solid rgba(65, 211, 255, 0.58);
+  box-shadow:
+    inset 0 0 42px rgba(23, 139, 255, 0.1),
+    0 0 28px rgba(23, 139, 255, 0.22);
+  clip-path: polygon(0 22px, 22px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 22px), calc(100% - 22px) 100%, 18px 100%, 0 calc(100% - 18px));
+  min-width: 0;
+  overflow: hidden;
+}
+
+.student-race-status {
+  display: grid;
+  gap: 12px;
+  grid-area: status;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 16px;
+}
+
+.student-race-status div {
+  border: 1px solid rgba(53, 220, 255, 0.18);
+  display: grid;
+  gap: 6px;
+  padding: 12px;
+}
+
+.student-race-status span,
+.race-panel-heading {
+  color: #8ddfff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.student-race-status strong {
+  color: #f2fbff;
+  font-size: 1.25rem;
+}
+
+.student-race-track {
+  grid-area: track;
+  padding: 16px;
+}
+
+.race-track-visual {
+  display: grid;
+  gap: 0;
+  height: 100%;
+  max-height: 360px;
+  position: relative;
+}
+
+.race-track-visual img {
+  border-radius: 8px;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.race-track-overlay {
+  background: linear-gradient(180deg, transparent 0%, rgba(2, 8, 25, 0.4) 100%);
+  border-radius: 8px;
+  bottom: 0;
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.student-race-players {
+  grid-area: players;
+  padding: 16px;
+}
+
+.student-race-players-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.student-race-players-list li {
+  align-items: center;
+  background: rgba(0, 50, 100, 0.3);
+  border: 1px solid rgba(53, 220, 255, 0.3);
+  border-radius: 6px;
+  display: flex;
+  gap: 12px;
+  padding: 10px 12px;
+  transition: background 200ms ease;
+}
+
+.student-race-players-list li.current-player {
+  background: rgba(255, 111, 248, 0.15);
+  border-color: rgba(255, 111, 248, 0.6);
+}
+
+.player-rank {
+  background: rgba(53, 220, 255, 0.2);
+  border-radius: 4px;
+  color: #39d8ff;
+  flex: 0 0 32px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.player-name {
+  color: #f2fbff;
+  flex: 1;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.player-you {
+  color: #ff6ff8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.student-player-card {
+  grid-area: card;
+  padding: 16px;
+}
+
+.player-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.player-card-name {
+  color: #f2fbff;
+  font-size: 1.1rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.player-card-status {
+  border: 1px solid rgba(53, 220, 255, 0.3);
+  border-radius: 4px;
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+}
+
+.player-card-status span {
+  color: #8ddfff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.player-card-status strong {
+  color: #39d8ff;
+  font-size: 0.95rem;
+}
+
+.player-card-placeholder {
+  align-items: center;
+  background: radial-gradient(circle at 30% 30%, rgba(53, 220, 255, 0.2), transparent 60%);
+  border: 2px dashed rgba(53, 220, 255, 0.4);
+  border-radius: 8px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  min-height: 120px;
+}
+
+.placeholder-icon {
+  font-size: 3rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 1200px) {
+  .student-race-shell {
+    grid-template-areas:
+      "header header"
+      "status status"
+      "track card"
+      "players card";
+    grid-template-columns: minmax(0, 1fr) minmax(200px, 0.28fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .student-race-shell {
+    grid-template-areas:
+      "header"
+      "status"
+      "track"
+      "card"
+      "players";
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .student-race-header h1 {
+    font-size: clamp(1.8rem, 7vw, 3rem);
+  }
+
+  .student-race-status {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .student-race-page {
+    padding: 16px;
+  }
+
+  .student-race-shell {
+    gap: 12px;
+  }
+
+  .student-race-header h1 {
+    font-size: clamp(1.5rem, 10vw, 2.5rem);
+  }
+
+  .student-race-message {
+    font-size: clamp(0.85rem, 3vw, 1.1rem);
+  }
+
+  .student-race-status {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .student-race-players-list {
+    gap: 6px;
+  }
+
+  .player-card-name {
+    font-size: 1rem;
+  }
+
+  .placeholder-icon {
+    font-size: 2rem;
+  }
+}

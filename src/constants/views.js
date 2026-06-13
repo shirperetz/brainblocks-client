@@ -5,4 +5,5 @@ export const VIEWS = {
   RACE_GAME: "race-game",
   STUDENT_JOIN: "student-join",
   STUDENT_LOBBY: "student-lobby",
+  STUDENT_RACE: "student-race",
 };
