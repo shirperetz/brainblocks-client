@@ -5,6 +5,7 @@ import LanguageToggle from "./LanguageToggle";
 import HomePage from "../pages/HomePage";
 import TeacherCreateRacePage from "../pages/TeacherCreateRacePage";
 import TeacherLobbyPage from "../pages/TeacherLobbyPage";
+import RaceGamePage from "../pages/RaceGamePage";
 import StudentJoinPage from "../pages/StudentJoinPage";
 import StudentLobbyPage from "../pages/StudentLobbyPage";
 
@@ -14,11 +15,12 @@ function AppRouter() {
     t,
     view,
     teacherRoomCode,
+    teacherRace,
     studentSession,
     goHome,
     goToTeacherCreate,
     goToStudentJoin,
-    handleTeacherRoomCreated,
+    handleTeacherRaceStarted,
     handleStudentJoined,
     toggleLanguage,
   } = useAppFlow();
@@ -33,8 +35,14 @@ function AppRouter() {
       <LanguageToggle label={t.toggleLabel} onToggle={toggleLanguage} />
 
       {view !== VIEWS.HOME && (
-        <button className="link-button" type="button" onClick={goHome}>
-          {t.backHome}
+        <button
+          aria-label={t.backHome}
+          className="link-button"
+          title={t.backHome}
+          type="button"
+          onClick={goHome}
+        >
+          <span className="link-button-label">{t.backHome}</span>
         </button>
       )}
 
@@ -47,11 +55,22 @@ function AppRouter() {
       )}
 
       {view === VIEWS.TEACHER_CREATE && (
-        <TeacherCreateRacePage t={t} onRoomCreated={handleTeacherRoomCreated} />
+        <TeacherCreateRacePage
+          t={t}
+          onRaceStarted={handleTeacherRaceStarted}
+        />
       )}
 
       {view === VIEWS.TEACHER_LOBBY && (
         <TeacherLobbyPage t={t} roomCode={teacherRoomCode} />
+      )}
+
+      {view === VIEWS.RACE_GAME && teacherRace && (
+        <RaceGamePage
+          lobby={teacherRace.lobby}
+          room={teacherRace.room}
+          t={t}
+        />
       )}
 
       {view === VIEWS.STUDENT_JOIN && (

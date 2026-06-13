@@ -6,11 +6,13 @@ function useAppFlow() {
   const [language, setLanguage] = useState(LANGUAGES.HEBREW);
   const [view, setView] = useState(VIEWS.HOME);
   const [teacherRoomCode, setTeacherRoomCode] = useState("");
+  const [teacherRace, setTeacherRace] = useState(null);
   const [studentSession, setStudentSession] = useState(null);
 
   function goHome() {
     setView(VIEWS.HOME);
     setTeacherRoomCode("");
+    setTeacherRace(null);
     setStudentSession(null);
   }
 
@@ -25,6 +27,15 @@ function useAppFlow() {
   function handleTeacherRoomCreated(room) {
     setTeacherRoomCode(room.roomCode);
     setView(VIEWS.TEACHER_LOBBY);
+  }
+
+  function handleTeacherRaceStarted(room, lobby) {
+    setTeacherRoomCode(room.roomCode);
+    setTeacherRace({
+      room,
+      lobby,
+    });
+    setView(VIEWS.RACE_GAME);
   }
 
   function handleStudentJoined(roomCode, player) {
@@ -46,11 +57,13 @@ function useAppFlow() {
     t: translations[language],
     view,
     teacherRoomCode,
+    teacherRace,
     studentSession,
     goHome,
     goToTeacherCreate,
     goToStudentJoin,
     handleTeacherRoomCreated,
+    handleTeacherRaceStarted,
     handleStudentJoined,
     toggleLanguage,
   };
