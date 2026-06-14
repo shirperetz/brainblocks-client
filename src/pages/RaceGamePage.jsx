@@ -1,3 +1,6 @@
+import RacePlayerBoard from "../components/race/RacePlayerBoard";
+import RaceStatusGrid from "../components/race/RaceStatusGrid";
+import RaceTrackPanel from "../components/race/RaceTrackPanel";
 import raceBackground from "../assets/space-race-lobby-background.png";
 import trackPreviewImage from "../assets/images/track-preview-space-race.png";
 
@@ -26,6 +29,20 @@ function RaceGamePage({ t, room, lobby }) {
   const labels = RACE_LABELS[t.direction === "rtl" ? "he" : "en"];
   const players = lobby?.players || [];
   const roomStatus = room?.status || lobby?.status || "IN_PROGRESS";
+  const statusItems = [
+    {
+      label: labels.roomCode,
+      value: room?.roomCode,
+    },
+    {
+      label: labels.status,
+      value: t.statuses?.[roomStatus] || roomStatus,
+    },
+    {
+      label: labels.players,
+      value: `${players.length} / ${lobby?.maxPlayers || room?.maxPlayers || 8}`,
+    },
+  ];
 
   return (
     <section
@@ -38,44 +55,26 @@ function RaceGamePage({ t, room, lobby }) {
           <h1>{labels.title}</h1>
         </header>
 
-        <section className="race-game-panel race-game-status" dir={t.direction}>
-          <div>
-            <span>{labels.roomCode}</span>
-            <strong>{room?.roomCode}</strong>
-          </div>
-          <div>
-            <span>{labels.status}</span>
-            <strong>{t.statuses?.[roomStatus] || roomStatus}</strong>
-          </div>
-          <div>
-            <span>{labels.players}</span>
-            <strong>{players.length} / {lobby?.maxPlayers || room?.maxPlayers || 8}</strong>
-          </div>
-        </section>
+        <RaceStatusGrid
+          className="race-game-panel race-game-status"
+          items={statusItems}
+          t={t}
+        />
 
-        <main className="race-game-track race-game-panel" dir={t.direction}>
-          <div className="race-panel-heading">{labels.track}</div>
-          <div className="race-track-visual">
-            <img src={trackPreviewImage} alt="" />
-            <div className="race-track-overlay" />
-          </div>
-        </main>
+        <RaceTrackPanel
+          className="race-game-track race-game-panel"
+          heading={labels.track}
+          imageSrc={trackPreviewImage}
+          t={t}
+        />
 
-        <aside className="race-game-panel race-player-board" dir={t.direction}>
-          <div className="race-panel-heading">{labels.livePanel}</div>
-          {players.length > 0 ? (
-            <ul>
-              {players.map((player, index) => (
-                <li key={player.id}>
-                  <span>{index + 1}</span>
-                  <strong>{player.displayName}</strong>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>{t.lobby.noStudents}</p>
-          )}
-        </aside>
+        <RacePlayerBoard
+          className="race-game-panel race-player-board"
+          emptyMessage={t.lobby.noStudents}
+          heading={labels.livePanel}
+          players={players}
+          t={t}
+        />
       </div>
     </section>
   );

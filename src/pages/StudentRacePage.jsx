@@ -1,17 +1,21 @@
+import RacePlayerBoard from "../components/race/RacePlayerBoard";
+import RaceStatusGrid from "../components/race/RaceStatusGrid";
+import RaceTrackPanel from "../components/race/RaceTrackPanel";
+import StudentPlayerCard from "../components/race/StudentPlayerCard";
 import raceBackground from "../assets/space-race-lobby-background.png";
 import trackPreviewImage from "../assets/images/track-preview-space-race.png";
 
 const STUDENT_RACE_LABELS = {
   he: {
-    title: "המרוץ התחיל",
-    subtitle: "מסך מרוץ",
-    message: "המרוץ התחיל!",
-    roomCode: "קוד חדר",
-    status: "סטטוס",
-    players: "שחקנים",
-    yourPosition: "מיקומך",
-    track: "מסלול מרוץ",
-    livePanel: "לוח מרוץ",
+    title: "\u05d4\u05de\u05e8\u05d5\u05e5 \u05d4\u05ea\u05d7\u05d9\u05dc",
+    subtitle: "\u05de\u05e1\u05da \u05de\u05e8\u05d5\u05e5",
+    message: "\u05d4\u05de\u05e8\u05d5\u05e5 \u05d4\u05ea\u05d7\u05d9\u05dc!",
+    roomCode: "\u05e7\u05d5\u05d3 \u05d7\u05d3\u05e8",
+    status: "\u05e1\u05d8\u05d8\u05d5\u05e1",
+    players: "\u05e9\u05d7\u05e7\u05e0\u05d9\u05dd",
+    yourPosition: "\u05de\u05d9\u05e7\u05d5\u05de\u05da",
+    track: "\u05de\u05e1\u05dc\u05d5\u05dc \u05de\u05e8\u05d5\u05e5",
+    livePanel: "\u05dc\u05d5\u05d7 \u05de\u05e8\u05d5\u05e5",
   },
   en: {
     title: "Race Started",
@@ -31,6 +35,24 @@ function StudentRacePage({ t, roomCode, lobby, player }) {
   const players = lobby?.players || [];
   const roomStatus = lobby?.status || "IN_PROGRESS";
   const playerPosition = players.findIndex((p) => p.id === player.id) + 1 || "-";
+  const statusItems = [
+    {
+      label: labels.roomCode,
+      value: roomCode,
+    },
+    {
+      label: labels.status,
+      value: t.statuses?.[roomStatus] || roomStatus,
+    },
+    {
+      label: labels.players,
+      value: players.length,
+    },
+    {
+      label: labels.yourPosition,
+      value: playerPosition,
+    },
+  ];
 
   return (
     <section
@@ -45,64 +67,35 @@ function StudentRacePage({ t, roomCode, lobby, player }) {
         </header>
 
         <div className="student-race-content">
-          <section className="student-race-status" dir={t.direction}>
-            <div>
-              <span>{labels.roomCode}</span>
-              <strong>{roomCode}</strong>
-            </div>
-            <div>
-              <span>{labels.status}</span>
-              <strong>{t.statuses?.[roomStatus] || roomStatus}</strong>
-            </div>
-            <div>
-              <span>{labels.players}</span>
-              <strong>{players.length}</strong>
-            </div>
-            <div>
-              <span>{labels.yourPosition}</span>
-              <strong>{playerPosition}</strong>
-            </div>
-          </section>
+          <RaceStatusGrid
+            className="student-race-status"
+            items={statusItems}
+            t={t}
+          />
 
-          <main className="student-race-track" dir={t.direction}>
-            <div className="race-panel-heading">{labels.track}</div>
-            <div className="race-track-visual">
-              <img src={trackPreviewImage} alt="" />
-              <div className="race-track-overlay" />
-            </div>
-          </main>
+          <RaceTrackPanel
+            className="student-race-track"
+            heading={labels.track}
+            imageSrc={trackPreviewImage}
+            t={t}
+          />
 
-          <aside className="student-race-players" dir={t.direction}>
-            <div className="race-panel-heading">{labels.livePanel}</div>
-            {players.length > 0 ? (
-              <ul className="student-race-players-list">
-                {players.map((p, index) => (
-                  <li key={p.id} className={p.id === player.id ? "current-player" : ""}>
-                    <span className="player-rank">{index + 1}</span>
-                    <span className="player-name">{p.displayName}</span>
-                    {p.id === player.id && (
-                      <span className="player-you">{t.studentRace?.you || "(You)"}</span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p>{t.lobby.noStudents}</p>
-            )}
-
-            <section className="student-player-card">
-              <div className="player-card-content">
-                <div className="player-card-name">{player.displayName}</div>
-                <div className="player-card-status">
-                  <span>{labels.status}</span>
-                  <strong>{t.statuses?.[roomStatus] || roomStatus}</strong>
-                </div>
-                <div className="player-card-placeholder">
-                  <div className="placeholder-icon">🚗</div>
-                </div>
-              </div>
-            </section>
-          </aside>
+          <RacePlayerBoard
+            className="student-race-players"
+            currentPlayerId={player.id}
+            emptyMessage={t.lobby.noStudents}
+            heading={labels.livePanel}
+            players={players}
+            t={t}
+            youLabel={t.studentRace?.you || "(You)"}
+          >
+            <StudentPlayerCard
+              labels={labels}
+              player={player}
+              roomStatus={roomStatus}
+              t={t}
+            />
+          </RacePlayerBoard>
         </div>
       </div>
     </section>
