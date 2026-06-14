@@ -1,4 +1,4 @@
-function RaceTrackPanel({ className, heading, imageSrc, t }) {
+function RaceTrackPanel({ children, className, heading, imageSrc, t }) {
   return (
     <main className={className} dir={t.direction}>
       <div className="race-panel-heading">{heading}</div>
@@ -6,6 +6,7 @@ function RaceTrackPanel({ className, heading, imageSrc, t }) {
         <img src={imageSrc} alt="" />
         <div className="race-track-overlay" />
       </div>
+      {children}
     </main>
   );
 }

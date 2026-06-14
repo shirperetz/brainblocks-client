@@ -159,11 +159,121 @@
 }
 
 .race-track-visual {
+  flex: 1 1 auto;
   height: 100%;
   min-height: 0;
   overflow: hidden;
   position: relative;
   width: 100%;
+}
+
+.student-question-panel {
+  background:
+    linear-gradient(145deg, rgba(2, 14, 38, 0.9), rgba(2, 8, 25, 0.78)),
+    radial-gradient(circle at 18% 0, rgba(255, 111, 248, 0.12), transparent 34%);
+  border: 1px solid rgba(255, 111, 248, 0.36);
+  border-radius: 6px;
+  display: grid;
+  flex: 0 0 auto;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 10px;
+}
+
+.student-question-heading {
+  align-items: center;
+  color: #8ddfff;
+  display: flex;
+  font-size: 0.72rem;
+  font-weight: 900;
+  gap: 10px;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+
+.student-question-heading small {
+  color: #ff8bf7;
+  font-size: 0.65rem;
+}
+
+.student-question-empty,
+.student-question-panel .error-message {
+  margin: 0;
+}
+
+.student-question-empty {
+  color: #d7f4ff;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.student-answer-form {
+  align-items: end;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: minmax(120px, 1fr) minmax(100px, 0.45fr) auto;
+}
+
+.student-question-text {
+  color: #f2fbff;
+  font-size: clamp(1rem, 2vw, 1.45rem);
+  line-height: 1;
+  text-shadow: 0 0 14px rgba(53, 220, 255, 0.42);
+}
+
+.student-answer-field {
+  display: grid;
+  gap: 4px;
+}
+
+.student-answer-field span {
+  color: #8ddfff;
+  font-size: 0.65rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.student-answer-field input {
+  background: rgba(1, 7, 22, 0.82);
+  border: 1px solid rgba(53, 220, 255, 0.36);
+  border-radius: 4px;
+  color: #f2fbff;
+  min-height: 34px;
+  padding: 7px 9px;
+}
+
+.student-answer-button {
+  background: linear-gradient(135deg, rgba(53, 220, 255, 0.2), rgba(2, 10, 30, 0.86));
+  border: 1px solid rgba(53, 220, 255, 0.72);
+  border-radius: 4px;
+  color: #effbff;
+  font-size: 0.74rem;
+  font-weight: 950;
+  min-height: 34px;
+  padding: 8px 12px;
+  text-transform: uppercase;
+}
+
+.student-answer-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+}
+
+.student-answer-result {
+  font-size: 0.85rem;
+  font-weight: 950;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.student-answer-result.is-correct {
+  color: #35f274;
+  text-shadow: 0 0 12px rgba(53, 242, 116, 0.52);
+}
+
+.student-answer-result.is-incorrect {
+  color: #ff8bf7;
+  text-shadow: 0 0 12px rgba(255, 111, 248, 0.52);
 }
 
 .race-track-visual img {
