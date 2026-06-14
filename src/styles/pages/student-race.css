@@ -7,11 +7,11 @@
   background-size: cover;
   color: #eaf7ff;
   height: 100vh;
+  inset: 0;
   margin: 0;
   overflow: hidden;
   padding: 0;
   position: fixed;
-  top: 0;
   width: 100vw;
 }
 
@@ -27,18 +27,19 @@
 }
 
 .student-race-shell {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
   height: 100vh;
-  padding: 0;
+  overflow: hidden;
+  padding: 12px 16px 14px;
   position: relative;
   width: 100vw;
   z-index: 1;
 }
 
 .student-race-header {
-  flex: 0 0 auto;
-  padding: 20px 24px;
+  min-height: 0;
+  padding: 4px 8px 8px;
   text-align: end;
   text-transform: uppercase;
   z-index: 10;
@@ -51,13 +52,13 @@
 
 .student-race-header p {
   color: #7fe5ff;
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   font-weight: 900;
 }
 
 .student-race-header h1 {
   color: #f2fbff;
-  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-size: clamp(1.45rem, 3vw, 2.35rem);
   font-style: italic;
   font-weight: 950;
   line-height: 1;
@@ -68,10 +69,10 @@
 
 .student-race-message {
   color: #ff6ff8 !important;
-  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+  font-size: clamp(0.72rem, 1.4vw, 0.95rem);
   font-weight: 950;
   letter-spacing: 0.1em;
-  margin-top: 8px !important;
+  margin-top: 4px !important;
   text-shadow:
     0 0 12px rgba(255, 111, 248, 0.86),
     0 0 26px rgba(168, 85, 247, 0.68);
@@ -79,12 +80,15 @@
 
 .student-race-content {
   display: grid;
-  flex: 1;
-  gap: 16px;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 280px);
-  grid-template-rows: auto minmax(0, 1fr);
+  gap: 12px;
+  grid-template-areas:
+    "track players"
+    "status players";
+  grid-template-columns: minmax(0, 1fr) clamp(220px, 18vw, 300px);
+  grid-template-rows: minmax(0, 1fr) clamp(74px, 10vh, 108px);
   min-height: 0;
-  padding: 0 16px 16px;
+  overflow: hidden;
+  padding: 0;
 }
 
 .student-race-status {
@@ -97,30 +101,33 @@
     0 0 28px rgba(23, 139, 255, 0.22);
   clip-path: polygon(0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px));
   display: grid;
-  gap: 12px;
-  grid-column: 1 / -1;
+  gap: 10px;
+  grid-area: status;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  padding: 14px;
+  min-height: 0;
+  overflow: hidden;
+  padding: 10px;
 }
 
 .student-race-status div {
   border: 1px solid rgba(53, 220, 255, 0.18);
   display: grid;
-  gap: 6px;
-  padding: 10px;
+  gap: 3px;
+  min-width: 0;
+  padding: 7px 8px;
   text-align: center;
 }
 
 .student-race-status span {
   color: #8ddfff;
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 .student-race-status strong {
   color: #f2fbff;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 950;
 }
 
@@ -136,35 +143,35 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-  grid-column: 1;
-  grid-row: 2;
+  grid-area: track;
   min-height: 0;
   overflow: hidden;
-  padding: 14px;
+  padding: 10px;
 }
 
 .race-panel-heading {
   color: #8ddfff;
   flex: 0 0 auto;
-  font-size: 0.8rem;
+  font-size: 0.74rem;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   text-transform: uppercase;
 }
 
 .race-track-visual {
-  display: flex;
-  flex: 1;
-  gap: 0;
+  height: 100%;
   min-height: 0;
+  overflow: hidden;
   position: relative;
+  width: 100%;
 }
 
 .race-track-visual img {
   border-radius: 6px;
   display: block;
-  flex: 1;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
   width: 100%;
 }
 
@@ -188,18 +195,17 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-  grid-column: 2;
-  grid-row: 1 / -1;
+  grid-area: players;
   min-height: 0;
   overflow: hidden;
-  padding: 14px;
+  padding: 10px;
 }
 
 .student-race-players-list {
   display: flex;
-  flex: 1;
+  flex: 0 1 auto;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
   list-style: none;
   margin: 0;
   min-height: 0;
@@ -214,8 +220,9 @@
   border-radius: 6px;
   display: flex;
   flex: 0 0 auto;
-  gap: 8px;
-  padding: 8px 10px;
+  gap: 7px;
+  min-height: 38px;
+  padding: 6px 8px;
   transition: background 200ms ease;
 }
 
@@ -255,23 +262,24 @@
 
 .student-player-card {
   display: flex;
-  flex: 1;
+  flex: 1 1 0;
   flex-direction: column;
-  gap: 10px;
-  padding: 12px;
+  gap: 8px;
+  min-height: 0;
+  padding: 8px 0 0;
 }
 
 .player-card-content {
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   justify-content: flex-start;
 }
 
 .player-card-name {
   color: #f2fbff;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 950;
   text-transform: uppercase;
 }
@@ -281,7 +289,7 @@
   border-radius: 4px;
   display: grid;
   gap: 4px;
-  padding: 8px;
+  padding: 7px;
 }
 
 .player-card-status span {
@@ -305,34 +313,36 @@
   display: flex;
   flex: 1;
   justify-content: center;
-  min-height: 80px;
+  min-height: 64px;
+  overflow: hidden;
 }
 
 .placeholder-icon {
-  font-size: 2.5rem;
+  font-size: 2rem;
   opacity: 0.8;
 }
 
 @media (max-width: 1200px) {
   .student-race-content {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto auto minmax(0, 1fr);
+    grid-template-areas:
+      "track players"
+      "status players";
+    grid-template-columns: minmax(0, 1fr) clamp(200px, 22vw, 260px);
+    grid-template-rows: minmax(0, 1fr) clamp(70px, 10vh, 100px);
   }
 
   .student-race-status {
-    grid-column: 1;
+    grid-area: status;
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .student-race-track {
-    grid-column: 1;
-    grid-row: 2;
+    grid-area: track;
   }
 
   .student-race-players {
-    grid-column: 1;
-    grid-row: 3;
-    max-height: 200px;
+    grid-area: players;
+    max-height: none;
   }
 }
 
@@ -351,7 +361,6 @@
 
   .student-race-content {
     gap: 12px;
-    padding: 0 12px 12px;
   }
 
   .student-race-status {
@@ -377,7 +386,7 @@
   }
 
   .student-race-players {
-    max-height: 180px;
+    max-height: none;
     padding: 12px;
   }
 
@@ -422,7 +431,12 @@
 
   .student-race-content {
     gap: 10px;
-    padding: 0 10px 10px;
+    grid-template-areas:
+      "track"
+      "status"
+      "players";
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr) auto clamp(120px, 22vh, 150px);
   }
 
   .student-race-status {
@@ -444,7 +458,7 @@
   }
 
   .student-race-track {
-    min-height: 200px;
+    min-height: 0;
     padding: 10px;
   }
 
@@ -454,7 +468,7 @@
   }
 
   .student-race-players {
-    max-height: 140px;
+    max-height: none;
     padding: 10px;
   }
 
